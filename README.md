@@ -2,7 +2,7 @@
 
 **Deep Learning for Audio Understanding**  
 University of Sydney — Pattern Recognition and Machine Intelligence  
-Group Assignment — 2025
+Group Assignment — 2026
 
 ---
 
