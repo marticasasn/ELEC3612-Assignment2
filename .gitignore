@@ -31,6 +31,7 @@ kaggle.json
 
 # Data (large files, fetched at runtime)
 data/
+music_genres_local/
 
 # Project instructions (local only)
 CLAUDE.md
