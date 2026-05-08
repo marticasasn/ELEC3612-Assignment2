@@ -1,0 +1,260 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,system-ui);color:var(--color-text-primary);background:transparent}
+.top{padding:1.5rem 0 1rem}
+.top h1{font-size:20px;font-weight:500;margin-bottom:4px}
+.top p{font-size:13px;color:var(--color-text-secondary)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:1rem 0 1.5rem}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.stat-val{font-size:18px;font-weight:500}
+.stat-lbl{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.nav{display:flex;gap:0;margin-bottom:1.25rem;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.nav-btn{flex:1;padding:8px 4px;font-size:11px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--color-text-secondary);border-right:0.5px solid var(--color-border-tertiary);transition:background 0.15s}
+.nav-btn:last-child{border-right:none}
+.nav-btn.active{background:var(--color-background-secondary);color:var(--color-text-primary)}
+.panel{display:none}
+.panel.active{display:block}
+.step{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);background:var(--color-background-primary);margin-bottom:10px;overflow:hidden}
+.step-h{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer}
+.step-h:hover{background:var(--color-background-secondary)}
+.badge{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.step-title{font-size:14px;font-weight:500;flex:1}
+.step-sub{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.chevron{font-size:15px;color:var(--color-text-tertiary);transition:transform 0.2s}
+.chevron.open{transform:rotate(180deg)}
+.step-body{display:none;padding:0 14px 14px;border-top:0.5px solid var(--color-border-tertiary)}
+.step-body.open{display:block}
+.lbl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-tertiary);margin:10px 0 6px}
+.tasks{list-style:none;display:flex;flex-direction:column;gap:5px}
+.task{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5;padding:7px 9px;border-radius:var(--border-radius-md);background:var(--color-background-secondary)}
+.task i{font-size:14px;flex-shrink:0;margin-top:1px}
+.tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.tool{font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md);font-weight:500}
+.out{border-left:2px solid var(--color-border-secondary);padding:5px 0 5px 10px;font-size:12px;color:var(--color-text-secondary);margin-top:8px;line-height:1.5}
+.warn{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:var(--border-radius-md);background:#FAEEDA;color:#633806;font-size:12px;line-height:1.5;margin-top:8px}
+@media(prefers-color-scheme:dark){.warn{background:#633806;color:#FAC775}}
+.warn i{flex-shrink:0;font-size:14px;margin-top:1px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.mini{padding:8px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);background:var(--color-background-secondary)}
+.mini-t{font-size:11px;font-weight:500;margin-bottom:3px}
+.mini-b{font-size:11px;color:var(--color-text-secondary);line-height:1.4}
+.report-sec{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);background:var(--color-background-primary);margin-bottom:8px;padding:12px 14px}
+.report-sec-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.report-sec-title{font-size:13px;font-weight:500;flex:1}
+.report-sec-pg{font-size:11px;color:var(--color-text-secondary)}
+.report-sec-body{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.ref-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;margin-bottom:6px;font-size:12px;line-height:1.5}
+.ref-title{font-weight:500;margin-bottom:2px}
+.ref-why{color:var(--color-text-secondary)}
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden">Assignment 2 project roadmap for music genre classification</h2>
+
+<div class="top">
+  <h1>Assignment 2 — project roadmap</h1>
+  <p>Music genre classification · lewtun/music_genres · CNN 2D + LSTM · ELEC3612</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-val" style="color:#185FA5">~25k</div><div class="stat-lbl">audio clips</div></div>
+  <div class="stat"><div class="stat-val" style="color:#3B6D11">19</div><div class="stat-lbl">genres (to filter)</div></div>
+  <div class="stat"><div class="stat-val" style="color:#534AB7">2</div><div class="stat-lbl">DL models</div></div>
+  <div class="stat"><div class="stat-val" style="color:#993C1D">10–15</div><div class="stat-lbl">page report</div></div>
+</div>
+
+<div class="nav" id="nav">
+  <button class="nav-btn active" onclick="showPanel(0)">① Dataset</button>
+  <button class="nav-btn" onclick="showPanel(1)">② Preprocessing</button>
+  <button class="nav-btn" onclick="showPanel(2)">③ CNN 2D</button>
+  <button class="nav-btn" onclick="showPanel(3)">④ LSTM</button>
+  <button class="nav-btn" onclick="showPanel(4)">⑤ Evaluation</button>
+  <button class="nav-btn" onclick="showPanel(5)">⑥ Report</button>
+</div>
+
+<div id="panels"></div>
+
+<script>
+const C = {
+  blue:  {bg:'#E6F1FB', fg:'#0C447C', acc:'#185FA5'},
+  green: {bg:'#EAF3DE', fg:'#3B6D11', acc:'#3B6D11'},
+  purple:{bg:'#EEEDFE', fg:'#3C3489', acc:'#534AB7'},
+  amber: {bg:'#FAEEDA', fg:'#633806', acc:'#854F0B'},
+  teal:  {bg:'#E1F5EE', fg:'#0F6E56', acc:'#0F6E56'},
+  coral: {bg:'#FAECE7', fg:'#712B13', acc:'#993C1D'}
+};
+
+const steps = [
+  {
+    c:'blue', title:'Dataset & EDA', sub:'Explore before modelling',
+    tasks:[
+      {i:'ti-database',t:'Load dataset from HuggingFace (~25k clips, train/test split already provided)'},
+      {i:'ti-chart-bar',t:'Plot genre distribution — identify class imbalance across the 19 genres'},
+      {i:'ti-filter',t:'Decide which genres to drop: "Spoken" (not music), "Old-Time/Historic" (vague), "Ambient Electronic" (overlaps Electronic)'},
+      {i:'ti-waveform',t:'Visualise waveforms and spectrograms for a few clips per genre — build intuition about what makes each genre different acoustically'},
+      {i:'ti-clock',t:'Check clip durations — confirm ~30s each, flag outliers'}
+    ],
+    tools:['datasets','librosa','matplotlib','seaborn'],
+    out:'Clear picture of usable classes, distribution, and justified genre filtering decision.'
+  },
+  {
+    c:'green', title:'Preprocessing', sub:'Two representations from raw audio',
+    tasks:[
+      {i:'ti-waveform',t:'Extract mel-spectrograms (CNN input): each clip → 2D image (128×128), log-scaled'},
+      {i:'ti-list-numbers',t:'Extract MFCCs (LSTM input): each clip → sequence of ~130 frames × 40 coefficients'},
+      {i:'ti-adjustments',t:'Normalise both (zero mean, unit variance) — fit stats on train set only, apply to val/test'},
+      {i:'ti-square-split-vertical',t:'Stratified train/val/test split: ~70% / 15% / 15%'},
+      {i:'ti-device-floppy',t:'Save tensors to disk (spectrograms_train.pt, mfccs_train.pt, etc.) — preprocess once, load during training'}
+    ],
+    tools:['librosa','torch','torchaudio','numpy'],
+    out:'Four .pt tensor files ready to load directly into CNN and LSTM training notebooks.',
+    warn:'Normalise using training set statistics only — fitting on the full dataset leaks test information.'
+  },
+  {
+    c:'purple', title:'CNN 2D', sub:'Mel-spectrogram → convolutional classifier',
+    tasks:[
+      {i:'ti-layout-grid',t:'Architecture: Conv2D → BatchNorm → ReLU → MaxPool (repeat 3–4x) → Dropout → Linear'},
+      {i:'ti-photo-plus',t:'Data augmentation: time masking + frequency masking (SpecAugment) to reduce overfitting'},
+      {i:'ti-settings',t:'Training: Adam optimiser, CrossEntropyLoss with class weights, learning rate scheduler, early stopping'},
+      {i:'ti-device-floppy',t:'Checkpoint: save best model by val accuracy → best_cnn.pth'},
+      {i:'ti-eye',t:'Grad-CAM: visualise which spectrogram regions activate for each genre — strong for the report'}
+    ],
+    tools:['torch','torch.nn','torch.optim','torchvision'],
+    out:'Trained CNN with checkpoint, training curves, and per-class metrics.',
+    split:[
+      {t:'What it learns',b:'Spectral texture, frequency distribution, recurring visual patterns in the spectrogram'},
+      {t:'Expected accuracy',b:'~80–90% — typically the stronger model on this task'}
+    ]
+  },
+  {
+    c:'amber', title:'LSTM', sub:'MFCC sequence → temporal classifier',
+    tasks:[
+      {i:'ti-arrows-right',t:'Architecture: stacked LSTM (2 layers, hidden 128–256) → Dropout → Linear on last hidden state'},
+      {i:'ti-adjust',t:'Try bidirectional LSTM — processes sequence in both directions, often improves accuracy'},
+      {i:'ti-settings',t:'Same training setup as CNN: Adam, class-weighted loss, scheduler, early stopping, checkpointing → best_lstm.pth'},
+      {i:'ti-chart-line',t:'Use gradient clipping if loss is unstable — LSTMs can diverge with large gradients'}
+    ],
+    tools:['torch','torch.nn.LSTM','torch.optim'],
+    out:'Trained LSTM with checkpoint, training curves, and per-class metrics.',
+    split:[
+      {t:'What it learns',b:'Temporal evolution — how music changes over 30s, rhythmic structure, transitions'},
+      {t:'Expected accuracy',b:'~70–82% — lower than CNN but captures different information'}
+    ]
+  },
+  {
+    c:'teal', title:'Evaluation', sub:'Compare both models rigorously',
+    tasks:[
+      {i:'ti-chart-pie',t:'Accuracy + weighted F1 + per-class F1 for CNN and LSTM on held-out test set'},
+      {i:'ti-layout-grid',t:'Confusion matrices for both — identify which genre pairs are most confused and explain why'},
+      {i:'ti-chart-area',t:'Training curves (loss + accuracy) for both — discuss overfitting and convergence'},
+      {i:'ti-rocket',t:'Lightweight baseline: SVM or Random Forest on hand-crafted features (~10 lines scikit-learn) — required for HD rubric'},
+      {i:'ti-table',t:'Summary comparison table: CNN vs LSTM vs baseline across all metrics'}
+    ],
+    tools:['sklearn.metrics','matplotlib','seaborn','torch'],
+    out:'Confusion matrices, metric tables, training curves — the core of the results section.'
+  },
+  {
+    c:'coral', title:'Report', sub:'10–15 pages, academic paper style',
+    isReport: true
+  }
+];
+
+const reportSections = [
+  {num:'1', title:'Introduction', pages:'0.5 pg', body:'What is the task, what is the dataset, why is deep learning the right approach here vs classical methods.'},
+  {num:'2', title:'Dataset & problem definition', pages:'1 pg', body:'Describe the dataset (25k clips, 19 genres, HuggingFace), the genre filtering decisions from EDA, and the formal ML problem (multi-class classification).'},
+  {num:'3', title:'Related work', pages:'0.5–1 pg', body:'3 papers are enough. Tzanetakis & Cook (2002) for the classical baseline, Choi et al. (2016) for CNN on audio, Choi et al. (2017) for LSTM. One paragraph connecting them to your work.'},
+  {num:'4', title:'Methodology', pages:'3–4 pg', body:'Preprocessing pipeline, CNN architecture with diagram, LSTM architecture with diagram. Justify every decision — not just what you did, but why.'},
+  {num:'5', title:'Results', pages:'2–3 pg', body:'All figures: confusion matrices, training curves, Grad-CAM visualisations. The comparison table CNN vs LSTM vs baseline. Every figure needs a caption explaining what it shows.'},
+  {num:'6', title:'Discussion & limitations', pages:'1 pg', body:'Why does CNN outperform LSTM (or not)? Which genres are hardest and why? What would you do differently with more time or data?'},
+  {num:'7', title:'Conclusion', pages:'0.5 pg', body:'One paragraph summary of what you did, what you found, and one sentence on future work.'},
+  {num:'A', title:'Appendix + GitHub', pages:'—', body:'Link to GitHub repo. Key code snippets: preprocessing, model definitions, training loop. Markers will check the repo.'}
+];
+
+const refs = [
+  {title:'Tzanetakis & Cook (2002)', why:'Foundational paper on music genre classification with MFCCs. Justifies the problem setup and the baseline.'},
+  {title:'Choi et al. (2016)', why:'CNN on mel-spectrograms for audio tagging. Directly justifies your CNN pipeline.'},
+  {title:'Choi et al. (2017)', why:'Convolutional recurrent networks for music classification. Directly justifies your LSTM pipeline.'}
+];
+
+function buildStep(s, i) {
+  const col = C[s.c];
+  const toolsHtml = s.tools ? s.tools.map(t =>
+    `<span class="tool" style="background:${col.bg};color:${col.fg}">${t}</span>`).join('') : '';
+  const splitHtml = s.split ? `<p class="lbl">key context</p><div class="split">${s.split.map(m=>
+    `<div class="mini"><div class="mini-t">${m.t}</div><div class="mini-b">${m.b}</div></div>`).join('')}</div>` : '';
+  const warnHtml = s.warn ? `<div class="warn"><i class="ti ti-alert-triangle" aria-hidden="true"></i><span>${s.warn}</span></div>` : '';
+
+  if (s.isReport) {
+    return `<div class="step" id="s${i}">
+      <div class="step-h" onclick="tog(${i})">
+        <div class="badge" style="background:${col.bg};color:${col.fg}">06</div>
+        <div style="flex:1"><div class="step-title">${s.title}</div><div class="step-sub">${s.sub}</div></div>
+        <i class="ti ti-chevron-down chevron" id="ch${i}" aria-hidden="true"></i>
+      </div>
+      <div class="step-body" id="b${i}">
+        <p class="lbl" style="margin-top:10px">sections</p>
+        ${reportSections.map(r=>`
+          <div class="report-sec">
+            <div class="report-sec-h">
+              <div class="badge" style="background:${col.bg};color:${col.fg};width:22px;height:22px;font-size:10px">${r.num}</div>
+              <span class="report-sec-title">${r.title}</span>
+              <span class="report-sec-pg">${r.pages}</span>
+            </div>
+            <div class="report-sec-body">${r.body}</div>
+          </div>`).join('')}
+        <p class="lbl">3 references you need</p>
+        ${refs.map(r=>`<div class="ref-card"><div class="ref-title">${r.title}</div><div class="ref-why">${r.why}</div></div>`).join('')}
+        <div class="warn" style="margin-top:8px"><i class="ti ti-alert-triangle" aria-hidden="true"></i><span>Write methodology while building the models — not all at the end. Much easier to justify decisions as you make them.</span></div>
+      </div>
+    </div>`;
+  }
+
+  return `<div class="step" id="s${i}">
+    <div class="step-h" onclick="tog(${i})">
+      <div class="badge" style="background:${col.bg};color:${col.fg}">0${i+1}</div>
+      <div style="flex:1"><div class="step-title">${s.title}</div><div class="step-sub">${s.sub}</div></div>
+      <i class="ti ti-chevron-down chevron" id="ch${i}" aria-hidden="true"></i>
+    </div>
+    <div class="step-body" id="b${i}">
+      <p class="lbl" style="margin-top:10px">tasks</p>
+      <ul class="tasks">${s.tasks.map(t=>
+        `<li class="task"><i class="ti ${t.i}" style="color:${col.acc}" aria-hidden="true"></i><span>${t.t}</span></li>`).join('')}
+      </ul>
+      ${splitHtml}
+      <p class="lbl">tools</p>
+      <div class="tools">${toolsHtml}</div>
+      <p class="lbl">output</p>
+      <div class="out" style="border-color:${col.acc}">${s.out}</div>
+      ${warnHtml}
+    </div>
+  </div>`;
+}
+
+const panels = document.getElementById('panels');
+steps.forEach((s,i)=>{
+  const div = document.createElement('div');
+  div.className = 'panel' + (i===0?' active':'');
+  div.id = 'panel'+i;
+  div.innerHTML = buildStep(s,i);
+  panels.appendChild(div);
+});
+
+function showPanel(i) {
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',j===i));
+  document.querySelectorAll('.nav-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+  const bodyEl = document.getElementById(`b${i}`);
+  const chevEl = document.getElementById(`ch${i}`);
+  if(!bodyEl.classList.contains('open')){
+    bodyEl.classList.add('open');
+    chevEl.classList.add('open');
+  }
+}
+
+function tog(i){
+  const b=document.getElementById(`b${i}`);
+  const c=document.getElementById(`ch${i}`);
+  b.classList.toggle('open');
+  c.classList.toggle('open');
+}
+
+tog(0);
+</script>
