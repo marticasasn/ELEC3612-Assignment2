@@ -37,6 +37,31 @@ Results are evaluated against a classical ML baseline (SVM / Random Forest on ha
 
 ---
 
+## Preprocessed Dataset
+
+To avoid re-running the full preprocessing pipeline (~10 GB raw audio), we publish pre-extracted tensors on Kaggle:
+
+**Kaggle Dataset:** https://www.kaggle.com/datasets/marticasas/pr-a2-preprocesseddataset
+
+| File | Shape | Description |
+|---|---|---|
+| `spectrograms_{train,val,test}.pt` | (N, 1, 128, 128) | Normalised mel-spectrograms |
+| `mfccs_{train,val,test}.pt` | (N, 130, 40) | Normalised MFCC sequences |
+| `labels_{train,val,test}.pt` | (N,) | Integer class labels |
+| `genre_mapping.json` | — | 12 genres, 0-indexed |
+| `spectrogram_stats.json` | — | Mean/std computed on train split |
+| `mfcc_stats.json` | — | Mean/std computed on train split |
+
+**Split sizes:** Train 12,342 / Val 2,645 / Test 2,645  
+**Total size:** ~1.45 GB
+
+CNN and LSTM notebooks load data from:
+```python
+DATA_DIR = Path("/kaggle/input/pr-a2-preprocesseddataset")
+```
+
+---
+
 ## Project Structure
 
 ```
