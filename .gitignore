@@ -36,3 +36,8 @@ music_genres_local/
 # Project instructions and AI memory (local only)
 CLAUDE.md
 memory/
+.claude/
+
+# Output directories
+/outputs/
+/checkpoints/
