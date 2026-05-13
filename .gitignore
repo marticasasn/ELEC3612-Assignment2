@@ -33,5 +33,6 @@ kaggle.json
 data/
 music_genres_local/
 
-# Project instructions (local only)
+# Project instructions and AI memory (local only)
 CLAUDE.md
+memory/
