@@ -49,7 +49,7 @@ We develop and compare two deep learning architectures against a classical ML ba
 
 To avoid re-running the full 10 GB preprocessing pipeline, we publish pre-extracted tensors on Kaggle:
 
-**Kaggle Dataset:** [[TODO: Kaggle preprocessed dataset link]](https://www.kaggle.com/datasets/marticasas/pr-a2-preprocesseddataset)
+**Kaggle Dataset:** [[Kaggle preprocessed dataset link]](https://www.kaggle.com/datasets/marticasas/pr-a2-preprocesseddataset)
 
 | File | Shape | Description |
 |---|---|---|
