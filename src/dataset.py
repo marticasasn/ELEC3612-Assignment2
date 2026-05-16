@@ -26,10 +26,10 @@ def _load_genre_mapping(path: Path) -> dict:
         raw = json.load(f)
     first_key = next(iter(raw))
     if isinstance(raw[first_key], int):
-        # Format: {"Rock": 0, "Pop": 1, ...}
+        # Format: {"Rock": 0, "Pop": 1, ...} — invert so keys are integers
         return {v: k for k, v in raw.items()}
     else:
-        # Format: {"0": "Rock", "1": "Pop", ...}
+        # Format: {"0": "Rock", "1": "Pop", ...} — cast string keys to int
         return {int(k): v for k, v in raw.items()}
 
 
@@ -38,6 +38,7 @@ class SpectrogramDataset(Dataset):
         _validate_split(split)
         tensors_dir = Path(tensors_dir)
 
+        # Resolve expected file paths for this split
         spec_path = tensors_dir / f"spectrograms_{split}.pt"
         labels_path = tensors_dir / f"labels_{split}.pt"
         mapping_path = tensors_dir / "genre_mapping.json"
@@ -45,11 +46,13 @@ class SpectrogramDataset(Dataset):
         _require_file(spec_path)
         _require_file(labels_path)
 
+        # Load tensors from disk; cast to float32/long to match model expectations
         self.spectrograms = torch.load(spec_path, weights_only=True).to(torch.float32)
         self.labels = torch.load(labels_path, weights_only=True).to(torch.long)
         self.genre_mapping = _load_genre_mapping(mapping_path)
         self.split = split
 
+        # Validate tensor shape: CNN expects single-channel 128×128 spectrograms
         if self.spectrograms.ndim != 4 or self.spectrograms.shape[1:] != (1, 128, 128):
             raise ValueError(
                 f"Expected spectrogram shape (N, 1, 128, 128), "
@@ -77,10 +80,13 @@ class SpectrogramDataset(Dataset):
         return len(self.genre_mapping)
 
     def get_class_weights(self) -> torch.FloatTensor:
+        # Inverse-frequency weighting: weight_c = N / (C * count_c)
+        # Rare classes receive higher weights, reducing bias toward majority classes
+        # when passed to CrossEntropyLoss(weight=...).
         n = len(self)
         c = self.num_classes
         counts = torch.bincount(self.labels, minlength=c).float()
-        counts = torch.clamp(counts, min=1.0)
+        counts = torch.clamp(counts, min=1.0)  # avoid division by zero for unseen classes
         return (n / (c * counts)).to(torch.float32)
 
     def __repr__(self) -> str:
@@ -95,6 +101,7 @@ class MFCCDataset(Dataset):
         _validate_split(split)
         tensors_dir = Path(tensors_dir)
 
+        # Resolve expected file paths for this split
         mfcc_path = tensors_dir / f"mfccs_{split}.pt"
         labels_path = tensors_dir / f"labels_{split}.pt"
         mapping_path = tensors_dir / "genre_mapping.json"
@@ -102,11 +109,13 @@ class MFCCDataset(Dataset):
         _require_file(mfcc_path)
         _require_file(labels_path)
 
+        # Load tensors from disk; cast to float32/long to match model expectations
         self.mfccs = torch.load(mfcc_path, weights_only=True).to(torch.float32)
         self.labels = torch.load(labels_path, weights_only=True).to(torch.long)
         self.genre_mapping = _load_genre_mapping(mapping_path)
         self.split = split
 
+        # Validate tensor shape: BiLSTM expects 130 time frames × 40 MFCC coefficients
         if self.mfccs.ndim != 3 or self.mfccs.shape[1:] != (130, 40):
             raise ValueError(
                 f"Expected MFCC shape (N, 130, 40), "
@@ -134,10 +143,12 @@ class MFCCDataset(Dataset):
         return len(self.genre_mapping)
 
     def get_class_weights(self) -> torch.FloatTensor:
+        # Inverse-frequency weighting: weight_c = N / (C * count_c)
+        # Rare classes receive higher weights, reducing bias toward majority classes.
         n = len(self)
         c = self.num_classes
         counts = torch.bincount(self.labels, minlength=c).float()
-        counts = torch.clamp(counts, min=1.0)
+        counts = torch.clamp(counts, min=1.0)  # avoid division by zero for unseen classes
         return (n / (c * counts)).to(torch.float32)
 
     def __repr__(self) -> str:

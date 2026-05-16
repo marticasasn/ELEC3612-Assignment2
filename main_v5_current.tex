@@ -20,6 +20,7 @@
 \usepackage{natbib}
 \usepackage{microtype}
 \usepackage{parskip}
+\setcounter{tocdepth}{2}
 
 % ─── Hyperref Setup ──────────────────────────────────────────────────────────
 \hypersetup{
@@ -34,7 +35,7 @@
 % ─── Header / Footer ─────────────────────────────────────────────────────────
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small ELEC3612 -- Machine Learning for Engineers}
+\fancyhead[L]{\small ELEC3612 -- Pattern Recognition and Machine Intelligence}
 \fancyhead[R]{\small Music Genre Classification}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -55,20 +56,18 @@
     \centering
     \vspace*{1.5cm}
 
-    {\Large \textbf{ELEC3612 -- Machine Learning for Engineers}}\\[0.4cm]
+    {\Large \textbf{ELEC3612 -- Pattern Recognition and Machine Intelligence}}\\[0.4cm]
     {\large School of Electrical and Information Engineering}\\[0.2cm]
     {\large The University of Sydney}\\[1.5cm]
 
     \rule{\linewidth}{1pt}\\[0.5cm]
-    {\LARGE \textbf{Assignment 2 (Group)}}\\[0.3cm]
+    {\LARGE \textbf{Assignment 2}}\\[0.3cm]
     {\Large \textbf{Deep Learning for Audio Understanding:}}\\[0.2cm]
     {\Large \textbf{Automatic Music Genre Classification}}\\[0.3cm]
     \rule{\linewidth}{1pt}\\[1.5cm]
 
     \begin{tabular}{ll}
         \textbf{Course Code:}   & ELEC3612 \\[4pt]
-        \textbf{Semester:}      & Semester 1, 2026 \\[4pt]
-        \textbf{Report Stage:}  & Stage 1, Stage 2 \& Stage 3 \\[4pt]
         \textbf{Submission:}    & \today \\
     \end{tabular}
 
@@ -96,7 +95,9 @@
 \end{titlepage}
 
 % ─── Table of Contents ───────────────────────────────────────────────────────
+\setlength{\parskip}{0pt}
 \tableofcontents
+\setlength{\parskip}{6pt}
 \thispagestyle{empty}
 \newpage
 
@@ -198,7 +199,7 @@ inform preprocessing decisions:
     \label{fig:genre_dist}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[b!]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \includegraphics[width=\textwidth]{figures/genre_distribution_filtered.png}
@@ -216,22 +217,21 @@ inform preprocessing decisions:
              is the smallest.}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/waveforms_sample.png}
-    \caption{Raw audio waveforms for Electronic, Classical, and Hip-Hop. Classical
-             exhibits wide dynamic range with periods of near-silence; Electronic
-             maintains consistently high amplitude; Hip-Hop shows sharp percussive
-             transients.}
+    \caption{Raw waveforms for Electronic, Classical, and Hip-Hop. Classical exhibits
+             wide dynamic range; Electronic maintains high amplitude; Hip-Hop shows
+             percussive transients.}
     \label{fig:waveforms}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/spectrograms_sample.png}
     \caption{Log-scaled Mel spectrograms for Electronic, Classical, and Hip-Hop.
-             Classical exhibits sparse, structured harmonic content; Electronic shows
-             dense broadband energy; Hip-Hop displays strong low-frequency periodicity.}
+             Classical has sparse harmonic content; Electronic shows dense broadband
+             energy; Hip-Hop has strong low-frequency periodicity.}
     \label{fig:spectrograms_sample}
 \end{figure}
 
@@ -275,7 +275,6 @@ final classification task on the following grounds:
 These exclusions are modelling decisions intended to reduce label ambiguity, extreme
 class imbalance, and non-musical categories; they do not imply that the removed labels
 are invalid music categories.
-
 The remaining \textbf{12 genres} form the final classification problem
 used in all subsequent modelling stages:
 \textit{Chiptune\,/\,Glitch}, \textit{Classical}, \textit{Country},
@@ -288,13 +287,6 @@ Class imbalance remains present: Rock and Electronic each contribute
 approximately 17.5\% of samples, while Country accounts for only 0.8\%.
 This imbalance is addressed during training via class-weighted
 cross-entropy loss (Section~\ref{sec:methodology}).
-
-\subsection{Intended Purpose and Task Alignment}
-
-The dataset was originally created to support MIR research, specifically for training
-and benchmarking models that automatically identify the genre of a music recording. This
-is the exact target task our project addresses: \textbf{supervised multi-class genre
-classification of audio signals}.
 
 \subsection{Justification for Dataset Selection}
 
@@ -403,7 +395,9 @@ The following evaluation metrics will be used (Table~\ref{tab:metrics}):
         Confusion Matrix & Reveals systematic misclassifications between acoustically
                            similar genres. \\[4pt]
         Training Curves & Loss and accuracy per epoch for both models; used to diagnose
-                          overfitting and convergence behaviour. \\
+                          overfitting and convergence behaviour. \\[4pt]
+        ROC-AUC (macro) & Area under the macro-averaged one-vs-rest ROC curve; measures
+                          class separability independently of the decision threshold. \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -642,9 +636,9 @@ classification on a 12-class problem with acoustically overlapping categories.
         \toprule
         \textbf{Model} & \textbf{Accuracy} & \textbf{Weighted F1} & \textbf{Macro F1} & \textbf{Macro AUC} \\
         \midrule
-        CNN (Mel spectrogram)   & \textbf{50.59\%} & \textbf{0.507} & \textbf{0.487} & \textbf{---} \\
-        SVM baseline (MFCC)     & 48.05\%          & 0.475          & 0.437          & ---           \\
-        BiLSTM (MFCC sequence)  & 40.42\%          & 0.400          & 0.351          & ---           \\
+        CNN (Mel spectrogram)   & \textbf{50.59\%} & \textbf{0.507} & \textbf{0.487} & \textbf{0.893} \\
+        SVM baseline (MFCC)     & 48.05\%          & 0.475          & 0.437          & 0.865          \\
+        BiLSTM (MFCC sequence)  & 40.42\%          & 0.400          & 0.351          & 0.789          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -679,48 +673,36 @@ are consistently the weakest.
     \end{tabular}
 \end{table}
 
-Figure~\ref{fig:perclass_f1} shows the per-class F1 scores as a grouped bar chart,
-making cross-model comparisons visible at a glance.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{figures/per_class_f1_comparison.png}
-    \caption{Per-class F1 scores for CNN, SVM, and BiLSTM. Hip-Hop and Classical are
-             consistently strong; Pop, Jazz, and Instrumental are consistently weak
-             across all three models.}
-    \label{fig:perclass_f1}
-\end{figure}
-
 \subsection{Confusion Matrices}
 
 Figures~\ref{fig:cm_cnn}--\ref{fig:cm_svm} show row-normalised confusion matrices for
 each model, revealing systematic misclassification patterns.
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.88\textwidth]{figures/cnn_confusion_matrix.png}
-    \caption{Row-normalised confusion matrix for the CNN. Strong diagonal entries for
-             Hip-Hop and Classical; Rock, Instrumental, and Pop exhibit the most
-             off-diagonal mass.}
-    \label{fig:cm_cnn}
-\end{figure}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/cnn_confusion_matrix.png}
+        \caption{CNN}
+        \label{fig:cm_cnn}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/lstm_confusion_matrix.png}
+        \caption{BiLSTM}
+        \label{fig:cm_lstm}
+    \end{subfigure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.88\textwidth]{figures/lstm_confusion_matrix.png}
-    \caption{Row-normalised confusion matrix for the BiLSTM. Country and Jazz are
-             almost entirely misclassified; confusion is broadly spread, indicating
-             limited discriminative power from MFCC temporal sequences alone.}
-    \label{fig:cm_lstm}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.88\textwidth]{figures/svm_confusion_matrix.png}
-    \caption{Row-normalised confusion matrix for the SVM baseline. Performance is
-             comparable to the CNN on Classical and Punk but degrades sharply on
-             Country and Jazz.}
-    \label{fig:cm_svm}
+    \vspace{0.8em}
+    \begin{subfigure}[b]{0.56\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/svm_confusion_matrix.png}
+        \caption{SVM baseline}
+        \label{fig:cm_svm}
+    \end{subfigure}
+    \caption{Row-normalised confusion matrices for all three models. Strong diagonals
+             for Hip-Hop and Classical across all models; Pop, Jazz, and Country show
+             the most off-diagonal mass.}
+    \label{fig:cm_all}
 \end{figure}
 
 \subsubsection*{CNN Confusion Analysis}
@@ -782,7 +764,7 @@ loss and accuracy per epoch for the CNN and BiLSTM respectively.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figures/cnn_training_curves.png}
+    \includegraphics[width=0.9\textwidth]{figures/cnn_training_curves.png}
     \caption{CNN training and validation loss (left) and accuracy (right) per epoch.
              Best checkpoint saved at epoch 35. Training accuracy continues rising while
              validation accuracy plateaus around epoch 20, indicating moderate overfitting.}
@@ -791,35 +773,11 @@ loss and accuracy per epoch for the CNN and BiLSTM respectively.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figures/lstm_training_curves.png}
+    \includegraphics[width=0.9\textwidth]{figures/lstm_training_curves.png}
     \caption{BiLSTM training and validation loss (left) and accuracy (right) per epoch.
              Best checkpoint saved at epoch 21. Validation loss diverges sharply after
              epoch 5 while training loss continues to fall, a textbook overfitting signature.}
     \label{fig:curves_lstm}
-\end{figure}
-
-\subsection{ROC-AUC Analysis}
-\label{subsec:roc}
-
-Figure~\ref{fig:roc} shows the macro-averaged one-vs-rest ROC curves for all three
-models. Each curve is computed by averaging the per-class ROC curves across all 12
-genres, with the area under the mean curve (macro AUC) reported in the legend and in
-Table~\ref{tab:overall_results}. A macro AUC of 1.0 represents perfect discrimination;
-0.5 corresponds to a random classifier. The CNN achieves the highest macro AUC, consistent
-with its accuracy and F1 superiority. The SVM's AUC is competitive, reflecting that
-handcrafted MFCC statistics provide meaningful class-separability even without end-to-end
-learning. The BiLSTM's lower AUC confirms that its reduced accuracy is not merely a
-threshold-calibration issue but reflects genuinely weaker class separation in probability
-space.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.85\textwidth]{figures/roc_curves.png}
-    \caption{Macro-averaged one-vs-rest ROC curves for all three models on the 2{,}645
-             test samples. Each curve averages 12 per-class ROC curves. The CNN achieves
-             the highest macro AUC, with all three models substantially above the random
-             baseline (dashed line, AUC = 0.500).}
-    \label{fig:roc}
 \end{figure}
 
 The CNN training curves (Figure~\ref{fig:curves_cnn}) show well-behaved convergence: both
@@ -841,6 +799,34 @@ temporal patterns from the MFCC sequences. The resulting train-val accuracy gap
 the recurrent architecture overfits much more aggressively on this dataset. Early
 stopping correctly saved the best checkpoint at epoch~21 before the overfitting became
 catastrophic.
+
+\subsection{ROC-AUC Analysis}
+\label{subsec:roc}
+
+Figure~\ref{fig:roc} shows the macro-averaged one-vs-rest ROC curves for all three
+models. Each curve is computed by averaging the per-class ROC curves across all 12
+genres, with the area under the mean curve (macro AUC) reported in the legend and in
+Table~\ref{tab:overall_results}. A macro AUC of 1.0 represents perfect discrimination;
+0.5 corresponds to a random classifier. The CNN achieves the highest macro AUC (0.893),
+consistent with its accuracy and F1 superiority. Notably, the SVM's AUC (0.865) is
+substantially closer to the CNN's than their 2.5 percentage point accuracy gap would
+suggest --- indicating that the SVM's probability estimates are well-calibrated and that
+handcrafted MFCC statistics provide strong class-separability, even if the decision
+boundary is slightly less precise than the CNN's learned representations. The BiLSTM is
+the clear outlier at 0.789, confirming that its weaker performance reflects genuinely
+poor class separation in probability space rather than a miscalibrated decision threshold
+--- the recurrent model simply fails to learn discriminative representations from MFCC
+sequences for this task.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/roc_curves.png}
+    \caption{Macro-averaged one-vs-rest ROC curves for all three models on the 2{,}645
+             test samples. Each curve averages 12 per-class ROC curves. The CNN achieves
+             the highest macro AUC (0.893), with all three models substantially above the
+             random baseline (dashed line, AUC = 0.500).}
+    \label{fig:roc}
+\end{figure}
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Discussion and Limitations}
@@ -866,7 +852,10 @@ BiLSTM by nearly 8 percentage points. This aligns with prior work \citep{tzaneta
 which demonstrated that MFCC summary statistics carry substantial genre-discriminative
 information. The SVM's competitiveness highlights that the BiLSTM's deficit is not
 simply due to using MFCC features --- it is the sequential formulation that underperforms,
-not the features themselves.
+not the features themselves. It should be noted that the 2.5 percentage point accuracy
+gap between the CNN and SVM has not been subjected to a statistical significance test;
+a McNemar's test on the paired test-set predictions would be required to confirm whether
+this difference is statistically meaningful rather than within the range of chance variation.
 
 \subsection{Hard and Easy Genres}
 
@@ -892,7 +881,7 @@ gradient clipping, and early stopping partially mitigate this. The BiLSTM's
 training curves plateau earlier than the CNN's, suggesting the recurrent model
 reaches its representational capacity faster on this task.
 
-\subsection{Limitations}
+\subsection{Limitations and Future Work}
 
 \begin{itemize}[noitemsep, topsep=4pt]
     \item \textbf{Genre labels are subjective.} Many real-world tracks span multiple
@@ -908,15 +897,13 @@ reaches its representational capacity faster on this task.
           genres such as Country and Jazz.
 \end{itemize}
 
-\subsection{Future Improvements}
-
-The most promising extension would be a \textbf{Convolutional Recurrent Neural Network
-(CRNN)} \citep{choi2017crnn} combining both branches: CNN convolutional blocks extract
-local spectral features from the Mel spectrogram, which are then fed as a sequence to an
-LSTM for temporal modelling. This architecture directly addresses the complementary
-weaknesses of our two models. Transfer learning from a large pretrained audio model
-(e.g.\ VGGish trained on AudioSet) is another viable direction, particularly for the
-small classes where our models struggle most.
+The most promising future extension would be a \textbf{Convolutional Recurrent Neural
+Network (CRNN)} \citep{choi2017crnn} combining both branches: CNN convolutional blocks
+extract local spectral features from the Mel spectrogram, which are then fed as a
+sequence to an LSTM for temporal modelling. This architecture directly addresses the
+complementary weaknesses of our two models. Transfer learning from a large pretrained
+audio model (e.g.\ VGGish trained on AudioSet) is another viable direction, particularly
+for the small classes where our models struggle most.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}

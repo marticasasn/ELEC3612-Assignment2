@@ -18,6 +18,7 @@ def compute_metrics(y_true, y_pred, class_names: list) -> dict:
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
 
+    # Explicit labels list ensures all 12 classes are scored even if absent in a batch
     labels = list(range(len(class_names)))
     per_class_f1 = f1_score(y_true, y_pred, labels=labels, average=None, zero_division=0)
 
@@ -43,9 +44,11 @@ def plot_confusion_matrix(
 ) -> None:
     labels = list(range(len(class_names)))
     cm = confusion_matrix(np.asarray(y_true), np.asarray(y_pred), labels=labels)
+
+    # Row-normalise so each cell shows recall (true positive rate) for that class.
+    # This makes class-size differences disappear and reveals confusion patterns directly.
     row_sums = cm.sum(axis=1, keepdims=True)
-    # Avoid division by zero for classes with no true samples.
-    row_sums = np.where(row_sums == 0, 1, row_sums)
+    row_sums = np.where(row_sums == 0, 1, row_sums)  # avoid division by zero
     cm_norm = cm / row_sums
 
     fig, ax = plt.subplots(figsize=(12, 10))
@@ -78,6 +81,7 @@ def plot_training_curves(
 ) -> None:
     epochs = range(1, len(history["train_loss"]) + 1)
 
+    # Use stored best_epoch if available, otherwise infer it from peak validation accuracy
     if "best_epoch" in history:
         best_epoch = history["best_epoch"]
     else:
@@ -121,6 +125,7 @@ def get_probabilities(model, loader, device) -> np.ndarray:
     with torch.no_grad():
         for inputs, _ in loader:
             inputs = inputs.to(device)
+            # Softmax converts raw logits to a valid probability distribution over classes
             probs = torch.softmax(model(inputs), dim=1).cpu().numpy()
             all_probs.append(probs)
     return np.concatenate(all_probs, axis=0)
@@ -144,7 +149,10 @@ def plot_roc_curves(
     from sklearn.preprocessing import label_binarize
 
     n_classes = len(class_names)
+    # Binarise labels for one-vs-rest ROC: each column is a binary indicator for one class
     y_bin = label_binarize(np.asarray(y_true), classes=list(range(n_classes)))
+
+    # Common FPR grid for interpolation so per-class TPR curves can be averaged
     mean_fpr = np.linspace(0, 1, 200)
 
     fig, ax = plt.subplots(figsize=(8, 6))
@@ -154,12 +162,15 @@ def plot_roc_curves(
     for (model_name, probs), color in zip(probs_dict.items(), colors):
         tprs = []
         for i in range(n_classes):
+            # Compute ROC for class i vs all others, then interpolate onto mean_fpr grid
             fpr_i, tpr_i, _ = roc_curve(y_bin[:, i], probs[:, i])
             interp_tpr = np.interp(mean_fpr, fpr_i, tpr_i)
-            interp_tpr[0] = 0.0
+            interp_tpr[0] = 0.0  # enforce TPR=0 at FPR=0
             tprs.append(interp_tpr)
+
+        # Macro average: unweighted mean TPR across all classes at each FPR threshold
         mean_tpr = np.mean(tprs, axis=0)
-        mean_tpr[-1] = 1.0
+        mean_tpr[-1] = 1.0  # enforce TPR=1 at FPR=1
         macro_auc = auc(mean_fpr, mean_tpr)
         auc_scores[model_name] = macro_auc
         ax.plot(mean_fpr, mean_tpr, color=color, lw=2,
@@ -209,6 +220,7 @@ def evaluate_model(
     history = None
 
     if checkpoint_path is not None:
+        # Load best-checkpoint weights saved during training
         ckpt = torch.load(
             Path(checkpoint_path), map_location=device, weights_only=False
         )
@@ -231,6 +243,7 @@ def evaluate_model(
         title=f"{model_name} — Confusion Matrix",
     )
 
+    # Only plot training curves if history was stored in the checkpoint
     if history is not None:
         curve_save = figures_dir / f"{model_name}_training_curves.png" if figures_dir else None
         plot_training_curves(

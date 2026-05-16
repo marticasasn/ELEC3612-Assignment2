@@ -21,9 +21,13 @@ def train_one_epoch(model, loader, optimizer, criterion, device) -> dict:
         logits = model(inputs)
         loss = criterion(logits, labels)
         loss.backward()
+
+        # Gradient clipping prevents exploding gradients, which are common in deep
+        # networks and recurrent architectures. max_norm=1.0 is a conservative cap.
         nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         optimizer.step()
 
+        # Accumulate weighted loss so the per-epoch average is sample-count-correct
         total_loss += loss.item() * batch_size
         correct += (logits.argmax(dim=1) == labels).sum().item()
         total += batch_size
@@ -37,7 +41,7 @@ def evaluate(model, loader, criterion, device) -> dict:
     correct = 0
     total = 0
 
-    with torch.no_grad():
+    with torch.no_grad():  # disable gradient tracking during inference to save memory
         for inputs, labels in loader:
             inputs, labels = inputs.to(device), labels.to(device)
             batch_size = inputs.size(0)
@@ -55,6 +59,8 @@ def evaluate(model, loader, criterion, device) -> dict:
 def _step_scheduler(scheduler, val_loss: float) -> None:
     if scheduler is None:
         return
+    # ReduceLROnPlateau monitors a metric and requires it to be passed explicitly.
+    # All other schedulers (StepLR, CosineAnnealingLR, etc.) step unconditionally.
     if isinstance(scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
         scheduler.step(val_loss)
     else:
@@ -87,6 +93,7 @@ def train(
         checkpoint_path = Path(checkpoint_path)
         checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Counter for epochs without improvement — triggers early stopping at `patience`
     epochs_no_improve = 0
 
     for epoch in range(1, num_epochs + 1):
@@ -105,6 +112,10 @@ def train(
 
         saved = ""
         if val_acc > history["best_val_acc"]:
+            # New best validation accuracy — save the full checkpoint and reset patience.
+            # We track val_acc (not val_loss) as the primary criterion because the
+            # weighted CrossEntropyLoss can decrease while accuracy stagnates on
+            # imbalanced classes.
             history["best_val_acc"] = val_acc
             history["best_val_loss"] = val_loss
             history["best_epoch"] = epoch
@@ -118,7 +129,7 @@ def train(
                         "optimizer_state_dict": optimizer.state_dict(),
                         "val_accuracy": val_acc,
                         "val_loss": val_loss,
-                        "history": history,
+                        "history": history,  # saved with checkpoint for later plotting
                     },
                     checkpoint_path,
                 )
@@ -126,6 +137,7 @@ def train(
         else:
             epochs_no_improve += 1
 
+        # Step the LR scheduler after validation so it responds to the latest metrics
         _step_scheduler(scheduler, val_loss)
 
         elapsed = time.time() - t0
@@ -138,6 +150,7 @@ def train(
             f"time={elapsed:.1f}s{saved}"
         )
 
+        # Stop training early if validation accuracy has not improved for `patience` epochs
         if epochs_no_improve >= patience:
             print(f"Early stopping triggered after {epoch} epochs (patience={patience}).")
             break
@@ -155,6 +168,7 @@ def load_checkpoint(
     ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
     model.load_state_dict(ckpt["model_state_dict"])
     if optimizer is not None and "optimizer_state_dict" in ckpt:
+        # Restore optimizer state so training can resume without a learning-rate reset
         optimizer.load_state_dict(ckpt["optimizer_state_dict"])
     return ckpt
 
