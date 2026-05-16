@@ -114,6 +114,74 @@ def plot_training_curves(
     plt.show()
 
 
+def get_probabilities(model, loader, device) -> np.ndarray:
+    """Return softmax probability matrix (N, C) for all samples in loader."""
+    model.eval()
+    all_probs = []
+    with torch.no_grad():
+        for inputs, _ in loader:
+            inputs = inputs.to(device)
+            probs = torch.softmax(model(inputs), dim=1).cpu().numpy()
+            all_probs.append(probs)
+    return np.concatenate(all_probs, axis=0)
+
+
+def plot_roc_curves(
+    y_true,
+    probs_dict: dict,
+    class_names: list,
+    save_path: Path = None,
+    title: str = "Macro-Averaged ROC Curves",
+) -> dict:
+    """Plot macro-averaged one-vs-rest ROC curves for multiple models.
+
+    Args:
+        probs_dict: {model_name: prob_array (N, C)}
+    Returns:
+        {model_name: macro_auc}
+    """
+    from sklearn.metrics import auc, roc_curve
+    from sklearn.preprocessing import label_binarize
+
+    n_classes = len(class_names)
+    y_bin = label_binarize(np.asarray(y_true), classes=list(range(n_classes)))
+    mean_fpr = np.linspace(0, 1, 200)
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    colors = ["#1f77b4", "#ff7f0e", "#2ca02c"]
+    auc_scores = {}
+
+    for (model_name, probs), color in zip(probs_dict.items(), colors):
+        tprs = []
+        for i in range(n_classes):
+            fpr_i, tpr_i, _ = roc_curve(y_bin[:, i], probs[:, i])
+            interp_tpr = np.interp(mean_fpr, fpr_i, tpr_i)
+            interp_tpr[0] = 0.0
+            tprs.append(interp_tpr)
+        mean_tpr = np.mean(tprs, axis=0)
+        mean_tpr[-1] = 1.0
+        macro_auc = auc(mean_fpr, mean_tpr)
+        auc_scores[model_name] = macro_auc
+        ax.plot(mean_fpr, mean_tpr, color=color, lw=2,
+                label=f"{model_name} (AUC = {macro_auc:.3f})")
+
+    ax.plot([0, 1], [0, 1], "k--", lw=1, label="Random (AUC = 0.500)")
+    ax.set_xlabel("False Positive Rate")
+    ax.set_ylabel("True Positive Rate")
+    ax.set_title(title)
+    ax.legend(loc="lower right")
+    ax.grid(True, alpha=0.3)
+    plt.tight_layout()
+
+    if save_path is not None:
+        save_path = Path(save_path)
+        save_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(save_path, dpi=150, bbox_inches="tight")
+
+    plt.show()
+    return auc_scores
+
+
 def get_predictions(model, loader, device) -> tuple:
     model.eval()
     all_true = []

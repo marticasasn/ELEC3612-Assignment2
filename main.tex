@@ -1,0 +1,1013 @@
+\documentclass[12pt, a4paper]{article}
+
+% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{natbib}
+\usepackage{microtype}
+\usepackage{parskip}
+
+% ─── Hyperref Setup ──────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue!60!black,
+    urlcolor=blue!70!black,
+    pdftitle={ELEC3612 Assignment 2 -- Music Genre Classification},
+    pdfauthor={Group Report},
+}
+
+% ─── Header / Footer ─────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small ELEC3612 -- Machine Learning for Engineers}
+\fancyhead[R]{\small Music Genre Classification}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ─── Section formatting ───────────────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}[\vspace{-0.3em}\rule{\linewidth}{0.4pt}]
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+
+% ─── Paragraph spacing ───────────────────────────────────────────────────────
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ─── Title Page ──────────────────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+
+    {\Large \textbf{ELEC3612 -- Machine Learning for Engineers}}\\[0.4cm]
+    {\large School of Electrical and Information Engineering}\\[0.2cm]
+    {\large The University of Sydney}\\[1.5cm]
+
+    \rule{\linewidth}{1pt}\\[0.5cm]
+    {\LARGE \textbf{Assignment 2 (Group)}}\\[0.3cm]
+    {\Large \textbf{Deep Learning for Audio Understanding:}}\\[0.2cm]
+    {\Large \textbf{Automatic Music Genre Classification}}\\[0.3cm]
+    \rule{\linewidth}{1pt}\\[1.5cm]
+
+    \begin{tabular}{ll}
+        \textbf{Course Code:}   & ELEC3612 \\[4pt]
+        \textbf{Semester:}      & Semester 1, 2026 \\[4pt]
+        \textbf{Report Stage:}  & Stage 1, Stage 2 \& Stage 3 \\[4pt]
+        \textbf{Submission:}    & \today \\
+    \end{tabular}
+
+    \vspace{2.5cm}
+
+    {\large \textbf{Abstract}}\\[0.4cm]
+    \begin{minipage}{0.88\textwidth}
+    \small
+    \setlength{\parskip}{4pt}
+    This report presents an automatic music genre classification system trained on the     \texttt{lewtun/music\_genres} dataset from HuggingFace, comprising approximately
+    25{,}000 labelled audio clips spanning 20 genre categories. After exploratory data
+    analysis and justified genre filtering to 12 genres (17{,}632 clips), two complementary
+    deep learning architectures are developed, trained, and compared: (1) a 2-D
+    Convolutional Neural Network (CNN) operating on log-scaled Mel spectrogram images, and
+    (2) a bidirectional Long Short-Term Memory network (BiLSTM) operating on sequences of
+    Mel-Frequency Cepstral Coefficient (MFCC) frames. Both models are benchmarked against
+    a classical Support Vector Machine (SVM) baseline. The CNN captures local spectral
+    texture via four convolutional blocks; the BiLSTM models temporal evolution of musical
+    structure across 130 MFCC frames. Results, per-class analysis, and a comparative
+    discussion are provided across all three models.
+    \end{minipage}
+
+    \vfill
+    {\small \textit{Submitted in partial fulfilment of the requirements of ELEC3612.}}
+\end{titlepage}
+
+% ─── Table of Contents ───────────────────────────────────────────────────────
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+% ─────────────────────────────────────────────────────────────────────────────
+
+Music genre classification is a foundational task in Music Information Retrieval (MIR) that aims to automatically assign a categorical genre label to an audio recording. The explosive growth of digital music streaming platforms has made automated genre tagging commercially essential, since manual annotation at the scale of tens of millions of tracks is infeasible.
+
+From a signal processing perspective, audio classification is non-trivial: raw waveforms
+are high-dimensional, temporally structured signals whose discriminative features
+(timbre, rhythm, harmony, pitch) are distributed across both time and frequency.
+Classical approaches based on handcrafted features such as Mel-Frequency Cepstral
+Coefficients (MFCCs) and spectral centroid were the dominant paradigm for many years
+\citep{tzanetakis2002musical}, but require domain expertise and fail to capture complex
+hierarchical acoustic patterns.
+
+Deep learning---in particular Convolutional Neural Networks (CNNs) and Recurrent Neural
+Networks (RNNs)---has substantially improved audio classification performance by enabling
+end-to-end feature learning directly from spectrograms or raw waveforms
+\citep{choi2017convolutional}. The CNN naturally captures local spectral texture in a
+Mel spectrogram image, while sequential architectures such as LSTMs capture the temporal
+dynamics that distinguish genres \citep{choi2017crnn}.
+
+This report covers the full project pipeline: \textbf{Stage~1} presents the selected
+dataset, exploratory data analysis (EDA), and a justified genre filtering decision.
+\textbf{Stage~2} provides a formal problem definition, motivation for deep learning, and
+a literature review. \textbf{Stage~3} details the implemented architectures, training
+procedure, and presents comparative results across all three models.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Stage 1: Dataset Selection and Description}
+\label{sec:dataset}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Selected Dataset}
+
+We have selected the \textbf{Music Genres} dataset hosted on HuggingFace Datasets
+(\url{https://huggingface.co/datasets/lewtun/music\_genres}). The dataset contains
+approximately \textbf{25{,}000 audio clips} labelled across \textbf{20 genre categories},
+with a pre-defined train/test split provided by the source.
+
+\subsection{Dataset Characteristics}
+
+Table~\ref{tab:dataset_summary} summarises the key properties of the dataset.
+
+\begin{table}[h!]
+    \centering
+    \caption{Summary of the Music Genres dataset properties.}
+    \label{tab:dataset_summary}
+    \begin{tabular}{>{\bfseries}p{4.5cm} p{8.5cm}}
+        \toprule
+        Property & Description \\
+        \midrule
+        Source & HuggingFace Datasets (\texttt{lewtun/music\_genres}) \\
+        Total clips & $\approx$25{,}000 \\
+        Number of genres (raw) & 20 \\
+        Clip duration & $\approx$30 seconds each \\
+        Data type & Audio waveform arrays with associated sampling rates \\
+        Task type & Multi-class supervised classification \\
+        Split & Pre-provided train/test split available; project uses custom stratified 70/15/15 split \\
+        Licence & Open-access; intended for research and educational use \\
+        Access method & Python \texttt{datasets} library (\texttt{load\_dataset}) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Exploratory Data Analysis}
+\label{subsec:eda}
+
+Before model development, we conducted the following EDA steps to build intuition and
+inform preprocessing decisions:
+
+\begin{enumerate}[noitemsep, topsep=4pt]
+    \item \textbf{Genre distribution:} Plotting the clip count per genre to identify class
+          imbalance across the 20 categories (Figure~\ref{fig:genre_dist}).
+    \item \textbf{Genre filtering and re-distribution:} After removing 8 genres, the
+          filtered class distribution was re-plotted and class imbalance quantified
+          (Figure~\ref{fig:genre_dist_filtered}, Figure~\ref{fig:class_imbalance}).
+    \item \textbf{Waveform visualisation:} Raw audio waveforms were plotted for
+          Electronic, Classical, and Hip-Hop to compare amplitude envelope and dynamic
+          range across genres (Figure~\ref{fig:waveforms}).
+    \item \textbf{Mel spectrogram visualisation:} Log-scaled Mel spectrograms were
+          plotted for the same three genres to build intuition about inter-class
+          time-frequency differences (Figure~\ref{fig:spectrograms_sample}).
+    \item \textbf{Mel spectrogram grid:} One example spectrogram per retained genre was
+          arranged in a 4$\times$3 grid to visualise the full 12-class problem
+          (Figure~\ref{fig:spectrograms_all}).
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/genre_distribution.png}
+    \caption{Sample count per genre in the raw dataset (20 genres, 24{,}985 clips). The
+             \textit{Unknown} category alone accounts for 20.3\% of all samples.}
+    \label{fig:genre_dist}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/genre_distribution_filtered.png}
+        \caption{Filtered distribution (12 genres).}
+        \label{fig:genre_dist_filtered}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/class_imbalance.png}
+        \caption{Class imbalance — dashed line marks the mean count.}
+        \label{fig:class_imbalance}
+    \end{subfigure}
+    \caption{Genre distribution and class imbalance after filtering to 12 genres
+             (17{,}632 clips). Rock and Electronic are the largest classes; Country
+             is the smallest.}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/waveforms_sample.png}
+    \caption{Raw audio waveforms for Electronic, Classical, and Hip-Hop. Classical
+             exhibits wide dynamic range with periods of near-silence; Electronic
+             maintains consistently high amplitude; Hip-Hop shows sharp percussive
+             transients.}
+    \label{fig:waveforms}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/spectrograms_sample.png}
+    \caption{Log-scaled Mel spectrograms for Electronic, Classical, and Hip-Hop.
+             Classical exhibits sparse, structured harmonic content; Electronic shows
+             dense broadband energy; Hip-Hop displays strong low-frequency periodicity.}
+    \label{fig:spectrograms_sample}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/spectrograms_all_genres.png}
+    \caption{One Mel spectrogram per retained genre arranged in a 4$\times$3 grid.
+             Classical and Chiptune\,/\,Glitch are visually most distinct; Rock, Punk,
+             and Hip-Hop share dense, uniform energy distributions.}
+    \label{fig:spectrograms_all}
+\end{figure}
+
+\subsection{Genre Filtering}
+\label{subsec:filtering}
+
+Following EDA, eight of the 20 raw genre labels were excluded from the
+final classification task on the following grounds:
+
+\begin{itemize}[noitemsep, topsep=4pt]
+    \item \textbf{Unknown} --- the single largest category (20.3\% of
+          all clips) carries no meaningful musical label and would
+          introduce systematic noise into the target variable.
+    \item \textbf{Easy Listening} --- only 13 clips; statistically
+          unusable for training or evaluation.
+    \item \textbf{Blues} --- only 58 clips; insufficient for reliable
+          generalisation.
+    \item \textbf{Soul-RnB} --- only 94 clips; same reasoning as Blues.
+    \item \textbf{Spoken} --- not a musical genre; acoustically distinct
+          from all other classes in a way that trivialises classification
+          rather than testing genre-level discrimination.
+    \item \textbf{Old-Time / Historic} --- an ill-defined catch-all
+          category with vague and inconsistent labelling criteria, likely
+          to introduce noise into the target variable.
+    \item \textbf{Ambient Electronic} --- substantial acoustic overlap
+          with the broader Electronic category, leading to ambiguous
+          ground-truth labels and expected high inter-class confusion.
+    \item \textbf{International} --- another ill-defined catch-all with
+          no consistent acoustic identity across clips.
+\end{itemize}
+
+These exclusions are modelling decisions intended to reduce label ambiguity, extreme
+class imbalance, and non-musical categories; they do not imply that the removed labels
+are invalid music categories.
+
+The remaining \textbf{12 genres} form the final classification problem
+used in all subsequent modelling stages:
+\textit{Chiptune\,/\,Glitch}, \textit{Classical}, \textit{Country},
+\textit{Electronic}, \textit{Experimental}, \textit{Folk},
+\textit{Hip-Hop}, \textit{Instrumental}, \textit{Jazz}, \textit{Pop},
+\textit{Punk}, and \textit{Rock}.
+
+After filtering, the dataset comprises \textbf{17{,}632 clips}.
+Class imbalance remains present: Rock and Electronic each contribute
+approximately 17.5\% of samples, while Country accounts for only 0.8\%.
+This imbalance is addressed during training via class-weighted
+cross-entropy loss (Section~\ref{sec:methodology}).
+
+\subsection{Intended Purpose and Task Alignment}
+
+The dataset was originally created to support MIR research, specifically for training
+and benchmarking models that automatically identify the genre of a music recording. This
+is the exact target task our project addresses: \textbf{supervised multi-class genre
+classification of audio signals}.
+
+\subsection{Justification for Dataset Selection}
+
+The Music Genres dataset was selected on the following criteria:
+
+\begin{enumerate}[noitemsep, topsep=2pt]
+    \item \textbf{Clear task alignment:} The dataset was purpose-built for audio
+          classification, mapping directly to a well-defined supervised learning problem.
+    \item \textbf{Scale:} $\approx$25{,}000 clips provides sufficient data to train
+          CNN and LSTM architectures without relying entirely on transfer learning.
+    \item \textbf{Practical relevance:} Music genre classification has direct real-world
+          applications in recommendation systems, content tagging, and streaming services.
+    \item \textbf{Deep learning compatibility:} Raw waveform audio is naturally suited to
+          CNN (spectrogram images) and LSTM (MFCC frame sequences) pipelines.
+    \item \textbf{Open access:} Freely available via HuggingFace \texttt{datasets},
+          ensuring reproducibility for all group members.
+\end{enumerate}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Stage 2: Problem Definition}
+\label{sec:problem}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Problem Statement}
+
+Given a raw audio recording $\mathbf{x} \in \mathbb{R}^{T}$ of duration $T$ samples
+(sampled at a fixed rate $f_s$), the goal is to learn a classifier $f_\theta$ that
+maps the recording to one of $K$ discrete genre labels $y \in \{1, 2, \ldots, K\}$
+(where $K = 12$ after filtering):
+
+\begin{equation}
+    f_\theta(\mathbf{x}) = \hat{y} \in \{1, \ldots, K\}
+    \label{eq:classifier}
+\end{equation}
+
+where $\theta$ denotes the learnable parameters of the model and $\hat{y}$ is the
+predicted genre label. The model is trained to minimise the categorical cross-entropy
+loss with optional class weighting to account for genre imbalance:
+
+\begin{equation}
+    \mathcal{L}(\theta) = -\frac{1}{N} \sum_{i=1}^{N} \sum_{k=1}^{K}
+    w_k \, y_{ik} \log \hat{p}_{ik}
+    \label{eq:loss}
+\end{equation}
+
+where $N$ is the number of training samples, $w_k$ is an optional class weight
+inversely proportional to class frequency, $y_{ik}$ is the one-hot encoded ground truth,
+and $\hat{p}_{ik} = \text{softmax}(f_\theta(\mathbf{x}_i))_k$ is the predicted
+probability for genre $k$.
+
+\subsection{Input Representations}
+
+Two complementary representations are derived from each raw audio clip, one for each
+model.
+
+\subsubsection{Mel Spectrogram (CNN Input)}
+
+Each audio clip is converted to a \textbf{log-scaled Mel spectrogram} $\mathbf{S}
+\in \mathbb{R}^{128 \times 128}$, which treats the audio as a 2-D time-frequency
+image suitable for convolutional processing:
+
+\begin{equation}
+    \mathbf{S}[m, t] = \log\!\left(1 + \mathbf{M}_m \cdot |\text{STFT}(\mathbf{x})[t]|^2\right)
+    \label{eq:melspec}
+\end{equation}
+
+where $\mathbf{M}_m$ is the $m$-th Mel filterbank vector and $\text{STFT}(\mathbf{x})[t]$
+is the Short-Time Fourier Transform at time frame $t$. The Mel scale approximates
+the non-linear frequency resolution of the human auditory system and has been shown to
+be highly effective for audio classification \citep{hershey2017cnn}.
+
+\subsubsection{MFCC Sequence (LSTM Input)}
+
+Each audio clip is also represented as a sequence of \textbf{MFCC frames} $\mathbf{C}
+\in \mathbb{R}^{T \times 40}$, where $T$ is the full frame sequence length before
+temporal resizing and 40 cepstral coefficients are retained per frame. The sequence is
+later interpolated to $T'=130$ frames for the LSTM input. This sequential representation
+preserves the temporal structure of the audio signal and serves as input to the LSTM
+model.
+
+\subsection{Target Variable and Output Space}
+
+The target variable $y$ is a categorical label indicating the music genre of each audio
+clip. This defines the problem as a \textbf{supervised multi-class single-label
+classification} task. All 12 retained classes are mutually exclusive.
+
+\subsection{Evaluation Metrics}
+
+The following evaluation metrics will be used (Table~\ref{tab:metrics}):
+
+\begin{table}[h!]
+    \centering
+    \caption{Evaluation metrics for model assessment.}
+    \label{tab:metrics}
+    \begin{tabular}{>{\bfseries}p{4cm} p{9cm}}
+        \toprule
+        Metric & Rationale \\
+        \midrule
+        Accuracy & Proportion of correctly classified samples; primary metric. \\[4pt]
+        Weighted F1-Score & Harmonic mean of precision and recall weighted by class
+                            support; robust to class imbalance. \\[4pt]
+        Macro F1 & Unweighted average F1 across all classes; penalises models that
+                   ignore minority genres equally. \\[4pt]
+        Per-class F1 & Per-genre breakdown revealing which classes are hardest to
+                       classify. \\[4pt]
+        Confusion Matrix & Reveals systematic misclassifications between acoustically
+                           similar genres. \\[4pt]
+        Training Curves & Loss and accuracy per epoch for both models; used to diagnose
+                          overfitting and convergence behaviour. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Data Splitting Strategy}
+
+Rather than using the pre-provided HuggingFace train/test split directly,
+we performed a stratified re-split of the full filtered dataset to ensure
+consistent genre proportions across all three partitions. The split
+ratios are:
+
+\begin{itemize}[noitemsep, topsep=4pt]
+    \item \textbf{Training set} (70\%, 12{,}342 clips): used to optimise
+          model parameters $\theta$ via stochastic gradient descent.
+    \item \textbf{Validation set} (15\%, 2{,}645 clips): used for
+          hyperparameter tuning and early stopping.
+    \item \textbf{Test set} (15\%, 2{,}645 clips): held out until
+          final evaluation.
+\end{itemize}
+
+Stratified splitting preserves proportional genre representation across
+all three partitions. Normalisation statistics (mean and standard deviation) are
+computed on the training split only and applied to validation and test
+sets to prevent data leakage.
+
+\subsection{Why Deep Learning is the Appropriate Modelling Choice}
+
+Several properties of audio genre classification motivate deep learning over classical
+machine learning:
+
+\begin{enumerate}[topsep=4pt]
+    \item \textbf{Hierarchical feature learning.}
+    Music genre is characterised by hierarchical acoustic patterns---from low-level
+    spectral energy to mid-level rhythmic motifs to high-level stylistic identity.
+    Deep networks learn these hierarchical representations automatically without manual
+    feature engineering \citep{lecun2015deep}.
+
+    \item \textbf{Temporal modelling.}
+    Musical structure unfolds over time. LSTMs are designed to model long-range temporal
+    dependencies and are particularly effective for genres where rhythmic and harmonic
+    development over the clip duration is the primary discriminative signal
+    \citep{choi2017crnn}.
+
+    \item \textbf{High-dimensional input space.}
+    A 30-second clip at 22{,}050 Hz contains over 660{,}000 samples. Classical methods
+    (SVM, Random Forest) require explicit dimensionality reduction or handcrafted feature
+    engineering before they can be applied effectively. Deep networks learn compact,
+    discriminative representations directly from high-dimensional inputs.
+
+    \item \textbf{State-of-the-art performance.}
+    The current state of the art on standard audio classification benchmarks is held
+    exclusively by deep learning models. On the GTZAN genre dataset, deep CNN-based
+    models consistently outperform classical SVM+MFCC baselines by a substantial margin
+    \citep{choi2017convolutional}.
+\end{enumerate}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Related Work}
+\label{sec:litreview}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\citet{tzanetakis2002musical} established the seminal framework for music genre
+classification using handcrafted features---MFCCs, spectral centroid, spectral rolloff,
+and beat histograms---fed into Gaussian mixture model and $k$-nearest neighbour
+classifiers on the now-standard GTZAN dataset. While highly influential, performance was
+limited to around 61\% accuracy on a 10-class problem, constrained by the expressiveness
+of handcrafted features. Their MFCC feature extraction pipeline forms the basis of our
+classical SVM baseline.
+
+\citet{choi2017convolutional} demonstrated that CNNs operating on log-amplitude
+spectrograms achieve strong performance on music tagging, and studied how pooling
+strategies along the time and frequency axes affect the ability to capture rhythmic
+versus spectral patterns. This work directly motivates our CNN 2-D architecture
+operating on Mel spectrogram images.
+
+\citet{choi2017crnn} proposed the Convolutional Recurrent Neural Network (CRNN),
+combining a CNN for local spectral feature extraction with an RNN for temporal sequence
+modelling---achieving state-of-the-art results on genre and mood tagging benchmarks.
+This architecture directly motivates our LSTM model: rather than implementing a full
+CRNN, we isolate the recurrent component by feeding MFCC sequences directly into a
+bidirectional LSTM, allowing us to compare the contribution of temporal modelling
+independently of convolutional feature extraction.
+
+Table~\ref{tab:litreview} provides a concise summary of these three works and their
+connection to our approach.
+
+\begin{table}[h!]
+    \centering
+    \caption{Summary of related work and connection to our methodology.}
+    \label{tab:litreview}
+    \begin{tabular}{p{3.2cm} p{3.0cm} p{3.0cm} p{3.4cm}}
+        \toprule
+        \textbf{Reference} & \textbf{Model} & \textbf{Input} & \textbf{Connection to our work} \\
+        \midrule
+        \citet{tzanetakis2002musical} & GMM / $k$-NN & MFCCs, ZCR, beat histogram &
+            Foundational framework; our SVM baseline replicates this feature pipeline \\[6pt]
+        \citet{choi2017convolutional} & CNN & Log spectrogram &
+            Directly motivates our CNN 2-D architecture on Mel spectrograms \\[6pt]
+        \citet{choi2017crnn} & CRNN & Mel spectrogram &
+            Motivates temporal modelling; we isolate the LSTM component on MFCC sequences \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Methodology}
+\label{sec:methodology}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Preprocessing Pipeline}
+
+Two separate feature extraction pipelines are applied---one per model---after a common
+set of audio normalisation steps.
+
+\subsubsection{Common Audio Normalisation}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Resample all clips to a uniform sampling rate of $f_s = 22{,}050$~Hz.
+    \item Convert stereo recordings to mono by averaging channels.
+    \item Pad or trim clips to a fixed duration of 30 seconds.
+\end{itemize}
+
+\subsubsection{CNN Branch: Mel Spectrogram Extraction}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Compute Mel spectrogram with 128 Mel filterbanks, a window size of 2{,}048
+          samples, and a hop length of 512 samples.
+    \item Apply log-amplitude compression: $\log(1 + S)$.
+    \item Resize to a fixed $128 \times 128$ image.
+    \item Normalise using training-set mean and standard deviation (zero mean, unit standard deviation).
+    \item Save to disk as \texttt{spectrograms\_\{train,val,test\}.pt}.
+\end{itemize}
+
+\subsubsection{LSTM Branch: MFCC Extraction}
+\begin{itemize}[noitemsep, topsep=2pt]
+    \item Extract 40 MFCC coefficients per frame using a hop length of 512 samples.
+          At 22{,}050~Hz, a 30-second clip produces $\lfloor 661{,}500 / 512 \rfloor + 1
+          \approx 1{,}292$ frames. This sequence is then compressed to a fixed length of
+          $T' = 130$ frames via temporal interpolation, ensuring a uniform input shape
+          across all clips.
+    \item Normalise each of the 40 coefficient dimensions to zero mean and unit standard deviation using training-set mean and standard deviation.
+    \item Save to disk as \texttt{mfccs\_\{train,val,test\}.pt} with shape
+          $(N, 130, 40)$.
+\end{itemize}
+
+Preprocessing is performed once offline; tensors are loaded directly during training to
+avoid repeated computation.
+
+\subsection{Model 1: 2-D Convolutional Neural Network}
+\label{subsec:cnn}
+
+\textbf{Input:} Log-scaled Mel spectrogram tensor of shape $(1, 128, 128)$.
+
+\textbf{Architecture:} Four convolutional blocks with filter counts 32, 64, 128, and
+256, each following the pattern:
+\[
+\texttt{Conv2D}(3{\times}3,\,\text{pad}=1) \to \texttt{BatchNorm2D} \to \texttt{ReLU} \to \texttt{MaxPool2D}(2{\times}2)
+\]
+After the four blocks, an \texttt{AdaptiveAvgPool2D}$(4,4)$ fixes the spatial size
+regardless of residual dimension variation, followed by:
+\[
+\texttt{Flatten} \to \texttt{Dropout}(0.5) \to \texttt{Linear}(4096, 512) \to \texttt{ReLU} \to \texttt{Dropout}(0.3) \to \texttt{Linear}(512, 12)
+\]
+The final layer outputs raw logits for $K=12$ classes.
+
+\textbf{Training:} Adam optimiser ($\text{lr}=10^{-3}$, weight decay $10^{-4}$);
+\texttt{CrossEntropyLoss} with inverse-frequency class weights; \texttt{ReduceLROnPlateau}
+scheduler (factor 0.5, patience 5); gradient clipping (\texttt{max\_norm}=1.0); early
+stopping on validation accuracy (patience 10). Best checkpoint saved as
+\texttt{best\_cnn.pth}.
+
+\subsection{Model 2: Bidirectional LSTM}
+\label{subsec:lstm}
+
+\textbf{Input:} MFCC sequence tensor of shape $(130, 40)$.
+
+\textbf{Architecture:} A 2-layer bidirectional LSTM with \texttt{hidden\_size}=256,
+\texttt{dropout}=0.3 between layers. Processing the sequence in both temporal directions
+allows the model to incorporate past and future context at each time step. The final
+hidden states of the forward and backward passes at the last layer ---
+$\mathbf{h}_{-2}$ and $\mathbf{h}_{-1}$ --- are concatenated to form a 512-dimensional
+context vector, followed by:
+\[
+\texttt{Dropout}(0.5) \to \texttt{Linear}(512, 256) \to \texttt{ReLU} \to \texttt{Dropout}(0.3) \to \texttt{Linear}(256, 12)
+\]
+
+\textbf{Training:} Identical setup to the CNN --- Adam ($\text{lr}=10^{-3}$, weight
+decay $10^{-4}$), class-weighted \texttt{CrossEntropyLoss}, \texttt{ReduceLROnPlateau},
+gradient clipping (\texttt{max\_norm}=1.0), and early stopping (patience 10). Best
+checkpoint saved as \texttt{best\_lstm.pth}.
+
+\subsection{Training Configuration and Hyperparameter Selection}
+\label{subsec:hyperparams}
+
+Hyperparameters including learning rate ($10^{-3}$), batch size (64), dropout rates
+(0.5 and 0.3), and weight decay ($10^{-4}$) were selected based on established
+practices for deep learning on audio classification tasks---specifically, Adam's
+recommended default learning rate \citep{kingma2014adam} and dropout values consistent
+with those reported in \citet{srivastava2014dropout}, where a rate of 0.5 is recommended
+for hidden layers. The learning rate was further adapted during training using a
+\texttt{ReduceLROnPlateau} scheduler (factor 0.5, patience 5), which automatically
+reduced the learning rate when validation loss plateaued, providing adaptive
+optimisation without manual intervention between runs.
+
+\subsection{Classical Baseline}
+
+An SVM classifier with an RBF kernel is trained on per-clip MFCC summary statistics,
+following the feature extraction approach of \citet{tzanetakis2002musical}. For each
+clip, the mean and standard deviation of the MFCC sequence are computed across the time
+axis, producing a $2 \times 40 = 80$-dimensional feature vector. Features are
+standardised with \texttt{StandardScaler} (fit on the training set only), and the
+classifier is trained with \texttt{SVC(kernel="rbf", C=10, gamma="scale",
+class\_weight="balanced")}. This baseline quantifies the performance gain from
+end-to-end deep feature learning over handcrafted representations.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Results}
+\label{sec:results}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Overall Model Comparison}
+\label{subsec:overall}
+
+Table~\ref{tab:overall_results} summarises test-set performance across all three models.
+The CNN achieves the highest accuracy (50.59\%) and weighted F1 (0.507), outperforming
+the SVM baseline by 2.5 percentage points and the BiLSTM by 10.2 percentage points.
+Notably, all three models exceed random-chance performance (8.3\% for 12 classes) by a
+substantial margin, and the deep learning models both outperform the classical baseline,
+confirming the value of end-to-end feature learning for this task. The relatively modest
+absolute accuracy across all models reflects the inherent difficulty of genre
+classification on a 12-class problem with acoustically overlapping categories.
+
+\begin{table}[h!]
+    \centering
+    \caption{Test-set performance comparison across all three models (2{,}645 samples).}
+    \label{tab:overall_results}
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Model} & \textbf{Accuracy} & \textbf{Weighted F1} & \textbf{Macro F1} & \textbf{Macro AUC} \\
+        \midrule
+        CNN (Mel spectrogram)   & \textbf{50.59\%} & \textbf{0.507} & \textbf{0.487} & \textbf{---} \\
+        SVM baseline (MFCC)     & 48.05\%          & 0.475          & 0.437          & ---           \\
+        BiLSTM (MFCC sequence)  & 40.42\%          & 0.400          & 0.351          & ---           \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Per-Class F1 Scores}
+
+Table~\ref{tab:perclass_f1} provides the per-genre F1 score for each model. Hip-Hop
+and Classical are consistently the strongest performers across all models; Jazz and Pop
+are consistently the weakest.
+
+\begin{table}[h!]
+    \centering
+    \caption{Per-class F1 scores on the test set for all three models.}
+    \label{tab:perclass_f1}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Genre} & \textbf{CNN} & \textbf{SVM} & \textbf{BiLSTM} \\
+        \midrule
+        Chiptune / Glitch  & 0.560 & 0.449 & 0.365 \\
+        Classical          & 0.714 & 0.704 & 0.594 \\
+        Country            & 0.444 & 0.368 & 0.111 \\
+        Electronic         & 0.486 & 0.499 & 0.429 \\
+        Experimental       & 0.478 & 0.425 & 0.361 \\
+        Folk               & 0.596 & 0.494 & 0.440 \\
+        Hip-Hop            & \textbf{0.762} & 0.609 & 0.526 \\
+        Instrumental       & 0.354 & 0.372 & 0.274 \\
+        Jazz               & 0.265 & 0.079 & 0.088 \\
+        Pop                & 0.168 & 0.213 & 0.156 \\
+        Punk               & 0.601 & \textbf{0.609} & 0.516 \\
+        Rock               & 0.412 & 0.420 & 0.352 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Figure~\ref{fig:perclass_f1} shows the per-class F1 scores as a grouped bar chart,
+making cross-model comparisons visible at a glance.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/per_class_f1_comparison.png}
+    \caption{Per-class F1 scores for CNN, SVM, and BiLSTM. Hip-Hop and Classical are
+             consistently strong; Pop, Jazz, and Instrumental are consistently weak
+             across all three models.}
+    \label{fig:perclass_f1}
+\end{figure}
+
+\subsection{Confusion Matrices}
+
+Figures~\ref{fig:cm_cnn}--\ref{fig:cm_svm} show row-normalised confusion matrices for
+each model, revealing systematic misclassification patterns.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/cnn_confusion_matrix.png}
+    \caption{Row-normalised confusion matrix for the CNN. Strong diagonal entries for
+             Hip-Hop and Classical; Rock, Instrumental, and Pop exhibit the most
+             off-diagonal mass.}
+    \label{fig:cm_cnn}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/lstm_confusion_matrix.png}
+    \caption{Row-normalised confusion matrix for the BiLSTM. Country and Jazz are
+             almost entirely misclassified; confusion is broadly spread, indicating
+             limited discriminative power from MFCC temporal sequences alone.}
+    \label{fig:cm_lstm}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.88\textwidth]{figures/svm_confusion_matrix.png}
+    \caption{Row-normalised confusion matrix for the SVM baseline. Performance is
+             comparable to the CNN on Classical and Punk but degrades sharply on
+             Country and Jazz.}
+    \label{fig:cm_svm}
+\end{figure}
+
+\subsubsection*{CNN Confusion Analysis}
+
+The CNN confusion matrix (Figure~\ref{fig:cm_cnn}) reveals several acoustically
+motivated error patterns. The strongest off-diagonal entry is
+Chiptune\,/\,Glitch$\to$Electronic (24.9\%), which is acoustically expected: both
+genres share synthesised timbres, dense mid-to-high frequency energy, and the absence
+of acoustic instrumentation. The reverse confusion (Electronic$\to$Chiptune, 15.0\%)
+confirms this is a bidirectional boundary failure driven by shared production
+characteristics rather than model bias. Country is predicted as Rock in 27.3\% of
+cases, reflecting the shared acoustic and electric guitar texture that defines both
+genres; without lyrical content as a signal, the spectrogram representations are
+near-indistinguishable for these clips. Classical is misclassified as Instrumental in
+approximately 23\% of cases --- clips that lack recognisable orchestral markers
+(e.g.\ solo piano passages or sparse chamber pieces) are indistinguishable from the
+broadly-defined Instrumental class. Jazz achieves only 23.9\% diagonal accuracy,
+scattering primarily into Experimental ($\sim$17\%) and Instrumental ($\sim$15\%):
+Jazz's complex, non-periodic harmonic structure and low class support (46 test samples)
+combine to make it the hardest class for the CNN. Pop is correctly identified only
+$\sim$15\% of the time, with $\sim$20\% predicted as Rock --- a direct consequence of
+Pop's stylistic heterogeneity and heavy borrowing of rock instrumentation.
+
+\subsubsection*{BiLSTM Confusion Analysis}
+
+The BiLSTM matrix (Figure~\ref{fig:cm_lstm}) shows substantially more diffuse
+off-diagonal mass, consistent with the model's lower overall accuracy. The most striking
+failure is Country, where only $\sim$9\% of clips are correctly classified and $\sim$32\%
+are predicted as Rock. This is worse than the CNN's already-poor Country performance,
+suggesting that the temporal evolution of MFCC coefficients provides almost no signal to
+distinguish Country from Rock at the frame sequence level. Notably, the BiLSTM
+outperforms the CNN on Classical (66.2\% vs.\ 60.8\%), which is the one genre where
+temporal structure is genuinely informative: Classical music has distinctive long-range
+harmonic development and dynamic variation that unfolds over time, rewarding the
+recurrent model's sequential processing. Jazz is near-unclassifiable for the BiLSTM
+($<$9\% diagonal), with confusion spread broadly across Instrumental, Experimental,
+and Electronic --- the MFCC sequence representation provides insufficient structure to
+capture Jazz's defining characteristics of improvisation and complex chord voicings.
+
+\subsubsection*{SVM Confusion Analysis}
+
+The SVM matrix (Figure~\ref{fig:cm_svm}) is notable for its strong Classical
+performance: 77.0\% correct, the highest of any model on any single genre. This
+reflects the fact that MFCC statistics (mean and standard deviation across the clip)
+effectively encode Classical music's sparse, structured harmonic content and wide
+dynamic range --- properties that aggregate well into a fixed-length feature vector.
+Hip-Hop (61.4\%) is similarly well-handled, as its characteristic bass emphasis and
+rhythmic periodicity are faithfully captured in MFCC summary statistics. The SVM
+degrades most sharply on Jazz, where the broad confusion pattern mirrors both deep
+models, confirming that Jazz's difficulty is a property of the acoustic content and
+class size rather than any particular model architecture. Pop and Country remain
+difficult for the same reasons as in the deep models, with Pop scattering across
+Rock, Punk, and Electronic, and Country confusing primarily with Rock.
+
+\subsection{Training Curves}
+
+Figures~\ref{fig:curves_cnn} and~\ref{fig:curves_lstm} show the training and validation
+loss and accuracy per epoch for the CNN and BiLSTM respectively.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/cnn_training_curves.png}
+    \caption{CNN training and validation loss (left) and accuracy (right) per epoch.
+             Best checkpoint saved at epoch 35. Training accuracy continues rising while
+             validation accuracy plateaus around epoch 20, indicating moderate overfitting.}
+    \label{fig:curves_cnn}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/lstm_training_curves.png}
+    \caption{BiLSTM training and validation loss (left) and accuracy (right) per epoch.
+             Best checkpoint saved at epoch 21. Validation loss diverges sharply after
+             epoch 5 while training loss continues to fall, a textbook overfitting signature.}
+    \label{fig:curves_lstm}
+\end{figure}
+
+\subsection{ROC-AUC Analysis}
+\label{subsec:roc}
+
+Figure~\ref{fig:roc} shows the macro-averaged one-vs-rest ROC curves for all three
+models. Each curve is computed by averaging the per-class ROC curves across all 12
+genres, with the area under the mean curve (macro AUC) reported in the legend and in
+Table~\ref{tab:overall_results}. A macro AUC of 1.0 represents perfect discrimination;
+0.5 corresponds to a random classifier. The CNN achieves the highest macro AUC, consistent
+with its accuracy and F1 superiority. The SVM's AUC is competitive, reflecting that
+handcrafted MFCC statistics provide meaningful class-separability even without end-to-end
+learning. The BiLSTM's lower AUC confirms that its reduced accuracy is not merely a
+threshold-calibration issue but reflects genuinely weaker class separation in probability
+space.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/roc_curves.png}
+    \caption{Macro-averaged one-vs-rest ROC curves for all three models on the 2{,}645
+             test samples. Each curve averages 12 per-class ROC curves. The CNN achieves
+             the highest macro AUC, with all three models substantially above the random
+             baseline (dashed line, AUC = 0.500).}
+    \label{fig:roc}
+\end{figure}
+
+The CNN training curves (Figure~\ref{fig:curves_cnn}) show well-behaved convergence: both
+training and validation loss decrease consistently in early epochs, with the best
+checkpoint saved at epoch~35. From around epoch~20 onward, training accuracy continues
+to climb (reaching $\sim$63\%) while validation accuracy plateaus at $\sim$55\%,
+indicating moderate overfitting. The validation accuracy curve is noticeably noisy
+throughout, reflecting the inherent difficulty and class overlap of the 12-genre
+problem rather than training instability. The train-val gap is manageable and was
+partially controlled by the two dropout layers (0.5 and 0.3) and early stopping.
+
+The BiLSTM training curves (Figure~\ref{fig:curves_lstm}) tell a markedly different
+story. Validation loss decreases only until approximately epoch~5, after which it
+diverges sharply --- rising from $\sim$1.8 to nearly 4.0 by epoch~21 --- while training
+loss continues falling to $\sim$0.25. This divergence is a textbook overfitting
+signature: the model memorises the training set rather than learning generalisable
+temporal patterns from the MFCC sequences. The resulting train-val accuracy gap
+($\sim$82\% vs.\ $\sim$43\% at epoch~21) is far larger than the CNN's, confirming that
+the recurrent architecture overfits much more aggressively on this dataset. Early
+stopping correctly saved the best checkpoint at epoch~21 before the overfitting became
+catastrophic.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion and Limitations}
+\label{sec:discussion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{CNN vs.\ BiLSTM: Spectral Texture vs.\ Temporal Dynamics}
+
+The CNN's superior performance (50.59\% vs.\ 40.42\%) suggests that spectral texture
+captured in a Mel spectrogram image is more discriminative for genre classification than
+temporal dynamics captured in MFCC sequences. Music genre is primarily characterised by
+timbre, instrumentation, and energy distribution --- properties well-encoded in a
+time-frequency image --- rather than by how those properties evolve over exactly 130
+short-term frames. The CNN can detect local spectral patterns (e.g.\ the dense
+broadband energy of Electronic or the sparse harmonic structure of Classical) directly
+from the image, whereas the BiLSTM must infer genre from the statistical evolution of
+cepstral coefficients, which is a more indirect and lossy representation.
+
+\subsection{Competitive SVM Baseline}
+
+The SVM baseline (48.05\%) performs surprisingly close to the CNN, outperforming the
+BiLSTM by nearly 8 percentage points. This aligns with prior work \citep{tzanetakis2002musical},
+which demonstrated that MFCC summary statistics carry substantial genre-discriminative
+information. The SVM's competitiveness highlights that the BiLSTM's deficit is not
+simply due to using MFCC features --- it is the sequential formulation that underperforms,
+not the features themselves.
+
+\subsection{Hard and Easy Genres}
+
+\textbf{Easy genres:} Hip-Hop (CNN F1: 0.762) and Classical (CNN F1: 0.714) are the
+most reliably classified across all models. Hip-Hop has strong low-frequency
+periodicity (bass and beat patterns) that is acoustically distinct; Classical exhibits
+sparse, structured harmonic content with wide dynamic range --- both are visually
+separable in the Mel spectrogram space.
+
+\textbf{Hard genres:} Pop (CNN F1: 0.168), Jazz (CNN F1: 0.265), and Instrumental
+(CNN F1: 0.354) are consistently the weakest performers. Pop is a stylistically
+heterogeneous genre that borrows elements from Rock, Electronic, Hip-Hop, and Folk,
+making it acoustically ill-defined. Jazz is a small class (only 46 test samples) with
+high acoustic overlap with Instrumental and Classical. Instrumental, by definition,
+spans many genres without lyrics as a discriminating signal, making it difficult to
+distinguish from Rock, Folk, or Electronic depending on the clip.
+
+\subsection{Overfitting Analysis}
+
+Both deep models show a train/validation accuracy gap, consistent with the
+moderate overfitting expected on a dataset of this size. Dropout (0.5 and 0.3),
+gradient clipping, and early stopping partially mitigate this. The BiLSTM's
+training curves plateau earlier than the CNN's, suggesting the recurrent model
+reaches its representational capacity faster on this task.
+
+\subsection{Limitations}
+
+\begin{itemize}[noitemsep, topsep=4pt]
+    \item \textbf{Genre labels are subjective.} Many real-world tracks span multiple
+          genres; single-label classification imposes a hard boundary that may not
+          reflect the underlying acoustic reality.
+    \item \textbf{Class imbalance persists.} Despite filtering and class-weighted loss,
+          Rock and Electronic together account for $\approx$35\% of clips, which likely
+          biases all models toward these majority classes.
+    \item \textbf{Fixed clip duration.} Truncating or padding to 30 seconds discards
+          long-range musical structure and may cut clips mid-phrase.
+    \item \textbf{No data augmentation.} Time-stretching, pitch-shifting, or mixup
+          augmentation could improve generalisation, particularly for underrepresented
+          genres such as Country and Jazz.
+\end{itemize}
+
+\subsection{Future Improvements}
+
+The most promising extension would be a \textbf{Convolutional Recurrent Neural Network
+(CRNN)} \citep{choi2017crnn} combining both branches: CNN convolutional blocks extract
+local spectral features from the Mel spectrogram, which are then fed as a sequence to an
+LSTM for temporal modelling. This architecture directly addresses the complementary
+weaknesses of our two models. Transfer learning from a large pretrained audio model
+(e.g.\ VGGish trained on AudioSet) is another viable direction, particularly for the
+small classes where our models struggle most.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+\label{sec:conclusion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+This report presented a complete deep learning pipeline for automatic music genre
+classification using the \texttt{lewtun/music\_genres} dataset. After exploratory data
+analysis and justified filtering from 20 to 12 genres, two complementary architectures
+were trained and evaluated: a 2-D CNN operating on log-scaled Mel spectrograms, and a
+bidirectional LSTM operating on MFCC frame sequences, alongside a classical SVM baseline.
+The CNN achieved the highest test accuracy (50.59\%, weighted F1: 0.507), outperforming
+the SVM (48.05\%) and the BiLSTM (40.42\%), indicating that spectral texture captured in
+a time-frequency image is more discriminative for genre than temporal dynamics captured
+in MFCC sequences alone. Hip-Hop and Classical were consistently the easiest genres to
+classify, while Pop, Jazz, and Instrumental proved difficult across all models due to
+acoustic heterogeneity and class overlap. Future work should explore a CRNN architecture
+that unifies both representation types, as well as data augmentation strategies and
+transfer learning from large pretrained audio models to improve performance on
+underrepresented genres.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\newpage
+\bibliographystyle{plainnat}
+
+\begin{thebibliography}{99}
+
+\bibitem[Choi et~al.(2017a)]{choi2017convolutional}
+Choi, K., Fazekas, G., Sandler, M., and Cho, K. (2017a).
+\newblock Convolutional recurrent neural networks for music classification.
+\newblock In \textit{IEEE International Conference on Acoustics, Speech and Signal
+Processing (ICASSP)}.
+
+\bibitem[Choi et~al.(2017b)]{choi2017crnn}
+Choi, K., Fazekas, G., and Sandler, M. (2017b).
+\newblock Music tagging with deep recurrent neural networks.
+\newblock In \textit{Proceedings of ISMIR 2017}.
+
+\bibitem[Hershey et~al.(2017)]{hershey2017cnn}
+Hershey, S., Chaudhuri, S., Ellis, D.~P., et~al. (2017).
+\newblock {CNN} architectures for large-scale audio classification.
+\newblock In \textit{IEEE International Conference on Acoustics, Speech and Signal
+Processing (ICASSP)}.
+
+\bibitem[LeCun et~al.(2015)]{lecun2015deep}
+LeCun, Y., Bengio, Y., and Hinton, G. (2015).
+\newblock Deep learning.
+\newblock \textit{Nature}, 521(7553):436--444.
+
+\bibitem[Kingma and Ba(2014)]{kingma2014adam}
+Kingma, D.~P. and Ba, J. (2014).
+\newblock Adam: A method for stochastic optimization.
+\newblock \textit{arXiv preprint arXiv:1412.6980}.
+
+\bibitem[Srivastava et~al.(2014)]{srivastava2014dropout}
+Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R. (2014).
+\newblock Dropout: A simple way to prevent neural networks from overfitting.
+\newblock \textit{Journal of Machine Learning Research}, 15(1):1929--1958.
+
+\bibitem[Tzanetakis and Cook(2002)]{tzanetakis2002musical}
+Tzanetakis, G. and Cook, P. (2002).
+\newblock Musical genre classification of audio signals.
+\newblock \textit{IEEE Transactions on Speech and Audio Processing}, 10(5):293--302.
+
+\end{thebibliography}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\appendix
+\section{Code Repository and Implementation Details}
+\label{sec:appendix}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The full source code, preprocessing notebooks, and model training notebooks are
+available at:
+
+\begin{center}
+\url{https://github.com/marticasasn/ELEC3612-Assignment2}
+\end{center}
+
+The repository includes:
+\begin{itemize}[noitemsep, topsep=4pt]
+    \item \texttt{notebooks/01\_eda\_kaggle.ipynb} --- exploratory data analysis and
+          genre filtering
+    \item \texttt{notebooks/02\_preprocessing\_kaggle.ipynb} --- feature extraction
+          and tensor saving
+    \item \texttt{notebooks/03\_cnn\_kaggle.ipynb} --- CNN training and evaluation
+    \item \texttt{notebooks/04\_lstm\_kaggle.ipynb} --- BiLSTM training and evaluation
+    \item \texttt{notebooks/05\_evaluation\_kaggle.ipynb} --- comparative evaluation
+          and SVM baseline
+    \item \texttt{src/} --- reusable PyTorch modules: dataset loaders, model
+          architectures, training loop, and evaluation utilities
+\end{itemize}
+
+\end{document}
