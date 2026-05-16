@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.40415879017013234,
+  "weighted_f1": 0.39975329470936644,
+  "macro_f1": 0.35108030875929996,
+  "per_class_f1": {
+    "Chiptune / Glitch": 0.3654485049833887,
+    "Classical": 0.593939393939394,
+    "Country": 0.1111111111111111,
+    "Electronic": 0.4291845493562232,
+    "Experimental": 0.3605313092979127,
+    "Folk": 0.44021739130434784,
+    "Hip-Hop": 0.5263157894736842,
+    "Instrumental": 0.2735562310030395,
+    "Jazz": 0.08791208791208792,
+    "Pop": 0.15613382899628253,
+    "Punk": 0.5164690382081687,
+    "Rock": 0.35214446952595935
+  },
+  "classification_report": "                   precision    recall  f1-score   support\n\nChiptune / Glitch       0.44      0.31      0.37       177\n        Classical       0.54      0.66      0.59        74\n          Country       0.14      0.09      0.11        22\n       Electronic       0.42      0.43      0.43       460\n     Experimental       0.37      0.35      0.36       270\n             Folk       0.44      0.45      0.44       182\n          Hip-Hop       0.45      0.62      0.53       264\n     Instrumental       0.26      0.29      0.27       157\n             Jazz       0.09      0.09      0.09        46\n              Pop       0.17      0.15      0.16       142\n             Punk       0.53      0.51      0.52       387\n             Rock       0.37      0.34      0.35       464\n\n         accuracy                           0.40      2645\n        macro avg       0.35      0.36      0.35      2645\n     weighted avg       0.40      0.40      0.40      2645\n"
+}

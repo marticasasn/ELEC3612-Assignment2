@@ -1,0 +1,2646 @@
+y_true,y_pred,true_genre,pred_genre
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+11,11,Rock,Rock
+9,11,Pop,Rock
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+5,8,Folk,Jazz
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+7,4,Instrumental,Experimental
+5,11,Folk,Rock
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,3,Punk,Electronic
+10,10,Punk,Punk
+4,8,Experimental,Jazz
+11,10,Rock,Punk
+9,6,Pop,Hip-Hop
+10,11,Punk,Rock
+11,4,Rock,Experimental
+10,3,Punk,Electronic
+4,4,Experimental,Experimental
+0,6,Chiptune / Glitch,Hip-Hop
+3,7,Electronic,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+5,5,Folk,Folk
+5,5,Folk,Folk
+1,5,Classical,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+3,6,Electronic,Hip-Hop
+3,7,Electronic,Instrumental
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+3,6,Electronic,Hip-Hop
+3,5,Electronic,Folk
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+3,7,Electronic,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+7,7,Instrumental,Instrumental
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+1,7,Classical,Instrumental
+5,5,Folk,Folk
+11,5,Rock,Folk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,3,Rock,Electronic
+4,3,Experimental,Electronic
+2,2,Country,Country
+2,2,Country,Country
+11,7,Rock,Instrumental
+5,5,Folk,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+10,11,Punk,Rock
+10,10,Punk,Punk
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+10,10,Punk,Punk
+6,8,Hip-Hop,Jazz
+11,10,Rock,Punk
+3,9,Electronic,Pop
+7,1,Instrumental,Classical
+2,5,Country,Folk
+11,4,Rock,Experimental
+0,3,Chiptune / Glitch,Electronic
+11,4,Rock,Experimental
+11,10,Rock,Punk
+10,7,Punk,Instrumental
+7,7,Instrumental,Instrumental
+5,5,Folk,Folk
+5,5,Folk,Folk
+11,10,Rock,Punk
+11,11,Rock,Rock
+11,11,Rock,Rock
+4,7,Experimental,Instrumental
+10,10,Punk,Punk
+11,10,Rock,Punk
+11,11,Rock,Rock
+11,3,Rock,Electronic
+11,4,Rock,Experimental
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+6,3,Hip-Hop,Electronic
+10,10,Punk,Punk
+1,1,Classical,Classical
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+10,10,Punk,Punk
+4,3,Experimental,Electronic
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+10,4,Punk,Experimental
+3,3,Electronic,Electronic
+10,3,Punk,Electronic
+0,3,Chiptune / Glitch,Electronic
+11,7,Rock,Instrumental
+9,9,Pop,Pop
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+1,1,Classical,Classical
+3,3,Electronic,Electronic
+4,11,Experimental,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+5,5,Folk,Folk
+11,11,Rock,Rock
+3,0,Electronic,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+11,3,Rock,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,9,Rock,Pop
+10,11,Punk,Rock
+11,10,Rock,Punk
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+6,3,Hip-Hop,Electronic
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+3,5,Electronic,Folk
+11,11,Rock,Rock
+6,8,Hip-Hop,Jazz
+3,6,Electronic,Hip-Hop
+1,1,Classical,Classical
+9,5,Pop,Folk
+9,9,Pop,Pop
+6,6,Hip-Hop,Hip-Hop
+8,4,Jazz,Experimental
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+5,7,Folk,Instrumental
+4,0,Experimental,Chiptune / Glitch
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+9,3,Pop,Electronic
+10,10,Punk,Punk
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+5,3,Folk,Electronic
+3,0,Electronic,Chiptune / Glitch
+6,3,Hip-Hop,Electronic
+10,11,Punk,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+8,8,Jazz,Jazz
+9,4,Pop,Experimental
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+11,10,Rock,Punk
+11,9,Rock,Pop
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+11,7,Rock,Instrumental
+6,6,Hip-Hop,Hip-Hop
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+5,9,Folk,Pop
+7,4,Instrumental,Experimental
+1,1,Classical,Classical
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+4,11,Experimental,Rock
+7,8,Instrumental,Jazz
+6,6,Hip-Hop,Hip-Hop
+6,0,Hip-Hop,Chiptune / Glitch
+10,10,Punk,Punk
+11,10,Rock,Punk
+3,9,Electronic,Pop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+9,10,Pop,Punk
+3,3,Electronic,Electronic
+3,6,Electronic,Hip-Hop
+10,10,Punk,Punk
+11,4,Rock,Experimental
+10,10,Punk,Punk
+11,4,Rock,Experimental
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+11,11,Rock,Rock
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+3,7,Electronic,Instrumental
+5,7,Folk,Instrumental
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+5,5,Folk,Folk
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+5,11,Folk,Rock
+5,5,Folk,Folk
+4,7,Experimental,Instrumental
+5,5,Folk,Folk
+8,10,Jazz,Punk
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+5,0,Folk,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+11,7,Rock,Instrumental
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+9,3,Pop,Electronic
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+11,4,Rock,Experimental
+0,4,Chiptune / Glitch,Experimental
+4,10,Experimental,Punk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+1,1,Classical,Classical
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,11,Pop,Rock
+5,4,Folk,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+9,3,Pop,Electronic
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+3,0,Electronic,Chiptune / Glitch
+3,9,Electronic,Pop
+3,6,Electronic,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+11,4,Rock,Experimental
+5,7,Folk,Instrumental
+10,10,Punk,Punk
+10,9,Punk,Pop
+11,11,Rock,Rock
+4,5,Experimental,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+11,4,Rock,Experimental
+7,7,Instrumental,Instrumental
+6,6,Hip-Hop,Hip-Hop
+1,1,Classical,Classical
+3,3,Electronic,Electronic
+10,6,Punk,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+5,5,Folk,Folk
+10,10,Punk,Punk
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+0,7,Chiptune / Glitch,Instrumental
+4,11,Experimental,Rock
+10,10,Punk,Punk
+9,10,Pop,Punk
+5,9,Folk,Pop
+4,7,Experimental,Instrumental
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+0,6,Chiptune / Glitch,Hip-Hop
+9,11,Pop,Rock
+11,1,Rock,Classical
+6,6,Hip-Hop,Hip-Hop
+5,11,Folk,Rock
+8,8,Jazz,Jazz
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+11,11,Rock,Rock
+7,10,Instrumental,Punk
+9,11,Pop,Rock
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+11,10,Rock,Punk
+10,10,Punk,Punk
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,3,Rock,Electronic
+3,7,Electronic,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+8,8,Jazz,Jazz
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+1,7,Classical,Instrumental
+10,10,Punk,Punk
+9,9,Pop,Pop
+8,11,Jazz,Rock
+4,4,Experimental,Experimental
+9,8,Pop,Jazz
+11,5,Rock,Folk
+6,6,Hip-Hop,Hip-Hop
+9,5,Pop,Folk
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+9,9,Pop,Pop
+10,10,Punk,Punk
+2,2,Country,Country
+10,11,Punk,Rock
+3,9,Electronic,Pop
+11,9,Rock,Pop
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+0,4,Chiptune / Glitch,Experimental
+11,11,Rock,Rock
+11,10,Rock,Punk
+5,5,Folk,Folk
+10,11,Punk,Rock
+11,5,Rock,Folk
+3,4,Electronic,Experimental
+11,3,Rock,Electronic
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+11,10,Rock,Punk
+3,9,Electronic,Pop
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+5,5,Folk,Folk
+9,3,Pop,Electronic
+11,5,Rock,Folk
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+7,9,Instrumental,Pop
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,4,Punk,Experimental
+3,0,Electronic,Chiptune / Glitch
+7,1,Instrumental,Classical
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+7,7,Instrumental,Instrumental
+10,9,Punk,Pop
+3,11,Electronic,Rock
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+10,10,Punk,Punk
+9,9,Pop,Pop
+5,5,Folk,Folk
+11,9,Rock,Pop
+10,11,Punk,Rock
+10,11,Punk,Rock
+3,4,Electronic,Experimental
+4,3,Experimental,Electronic
+11,11,Rock,Rock
+10,11,Punk,Rock
+11,9,Rock,Pop
+4,11,Experimental,Rock
+11,8,Rock,Jazz
+6,6,Hip-Hop,Hip-Hop
+6,3,Hip-Hop,Electronic
+5,5,Folk,Folk
+6,3,Hip-Hop,Electronic
+2,11,Country,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+11,7,Rock,Instrumental
+1,1,Classical,Classical
+10,10,Punk,Punk
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+8,4,Jazz,Experimental
+6,6,Hip-Hop,Hip-Hop
+10,3,Punk,Electronic
+7,7,Instrumental,Instrumental
+9,9,Pop,Pop
+5,10,Folk,Punk
+7,9,Instrumental,Pop
+11,7,Rock,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+10,11,Punk,Rock
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+4,9,Experimental,Pop
+6,6,Hip-Hop,Hip-Hop
+3,4,Electronic,Experimental
+10,10,Punk,Punk
+1,1,Classical,Classical
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+5,4,Folk,Experimental
+0,7,Chiptune / Glitch,Instrumental
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+10,10,Punk,Punk
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+1,1,Classical,Classical
+3,3,Electronic,Electronic
+3,6,Electronic,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+9,10,Pop,Punk
+0,4,Chiptune / Glitch,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+11,3,Rock,Electronic
+3,0,Electronic,Chiptune / Glitch
+0,3,Chiptune / Glitch,Electronic
+3,4,Electronic,Experimental
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+3,9,Electronic,Pop
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+7,11,Instrumental,Rock
+5,5,Folk,Folk
+3,6,Electronic,Hip-Hop
+11,10,Rock,Punk
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+5,6,Folk,Hip-Hop
+3,3,Electronic,Electronic
+9,10,Pop,Punk
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+8,3,Jazz,Electronic
+3,11,Electronic,Rock
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+4,7,Experimental,Instrumental
+11,8,Rock,Jazz
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,8,Experimental,Jazz
+7,7,Instrumental,Instrumental
+9,3,Pop,Electronic
+10,11,Punk,Rock
+3,4,Electronic,Experimental
+11,11,Rock,Rock
+11,3,Rock,Electronic
+4,4,Experimental,Experimental
+3,6,Electronic,Hip-Hop
+5,9,Folk,Pop
+6,3,Hip-Hop,Electronic
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+4,7,Experimental,Instrumental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+10,10,Punk,Punk
+11,3,Rock,Electronic
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+6,3,Hip-Hop,Electronic
+3,0,Electronic,Chiptune / Glitch
+4,5,Experimental,Folk
+8,11,Jazz,Rock
+4,1,Experimental,Classical
+11,0,Rock,Chiptune / Glitch
+9,9,Pop,Pop
+10,3,Punk,Electronic
+5,7,Folk,Instrumental
+10,10,Punk,Punk
+6,0,Hip-Hop,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+5,7,Folk,Instrumental
+11,11,Rock,Rock
+5,5,Folk,Folk
+9,5,Pop,Folk
+3,4,Electronic,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+7,11,Instrumental,Rock
+5,9,Folk,Pop
+11,8,Rock,Jazz
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+10,10,Punk,Punk
+6,9,Hip-Hop,Pop
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+7,4,Instrumental,Experimental
+0,7,Chiptune / Glitch,Instrumental
+10,10,Punk,Punk
+3,11,Electronic,Rock
+5,5,Folk,Folk
+3,5,Electronic,Folk
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+1,4,Classical,Experimental
+3,3,Electronic,Electronic
+3,6,Electronic,Hip-Hop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,7,Folk,Instrumental
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+8,11,Jazz,Rock
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+7,4,Instrumental,Experimental
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+3,6,Electronic,Hip-Hop
+11,7,Rock,Instrumental
+7,3,Instrumental,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+4,11,Experimental,Rock
+11,11,Rock,Rock
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+4,10,Experimental,Punk
+3,9,Electronic,Pop
+5,5,Folk,Folk
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+11,4,Rock,Experimental
+4,4,Experimental,Experimental
+8,2,Jazz,Country
+10,10,Punk,Punk
+1,7,Classical,Instrumental
+11,11,Rock,Rock
+11,11,Rock,Rock
+11,9,Rock,Pop
+11,7,Rock,Instrumental
+10,10,Punk,Punk
+4,7,Experimental,Instrumental
+9,11,Pop,Rock
+7,10,Instrumental,Punk
+10,3,Punk,Electronic
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+10,10,Punk,Punk
+9,9,Pop,Pop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,0,Hip-Hop,Chiptune / Glitch
+11,0,Rock,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,0,Pop,Chiptune / Glitch
+10,10,Punk,Punk
+1,1,Classical,Classical
+9,6,Pop,Hip-Hop
+6,3,Hip-Hop,Electronic
+10,11,Punk,Rock
+4,3,Experimental,Electronic
+11,4,Rock,Experimental
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+5,5,Folk,Folk
+5,5,Folk,Folk
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+4,7,Experimental,Instrumental
+5,5,Folk,Folk
+3,0,Electronic,Chiptune / Glitch
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+1,1,Classical,Classical
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+3,11,Electronic,Rock
+4,7,Experimental,Instrumental
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,11,Experimental,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+11,11,Rock,Rock
+8,8,Jazz,Jazz
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+1,7,Classical,Instrumental
+5,9,Folk,Pop
+4,11,Experimental,Rock
+2,11,Country,Rock
+11,11,Rock,Rock
+11,11,Rock,Rock
+7,4,Instrumental,Experimental
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+9,6,Pop,Hip-Hop
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+11,4,Rock,Experimental
+11,10,Rock,Punk
+9,7,Pop,Instrumental
+11,10,Rock,Punk
+9,4,Pop,Experimental
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+6,6,Hip-Hop,Hip-Hop
+6,11,Hip-Hop,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,3,Hip-Hop,Electronic
+7,10,Instrumental,Punk
+10,4,Punk,Experimental
+11,4,Rock,Experimental
+11,11,Rock,Rock
+6,7,Hip-Hop,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+5,5,Folk,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,11,Electronic,Rock
+3,5,Electronic,Folk
+11,11,Rock,Rock
+5,5,Folk,Folk
+10,10,Punk,Punk
+5,5,Folk,Folk
+10,10,Punk,Punk
+11,11,Rock,Rock
+2,10,Country,Punk
+7,4,Instrumental,Experimental
+10,3,Punk,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+10,10,Punk,Punk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+7,11,Instrumental,Rock
+7,7,Instrumental,Instrumental
+11,10,Rock,Punk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+8,3,Jazz,Electronic
+11,10,Rock,Punk
+3,6,Electronic,Hip-Hop
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,4,Electronic,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+10,4,Punk,Experimental
+11,5,Rock,Folk
+9,5,Pop,Folk
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,4,Electronic,Experimental
+1,7,Classical,Instrumental
+9,7,Pop,Instrumental
+10,11,Punk,Rock
+7,5,Instrumental,Folk
+10,10,Punk,Punk
+10,10,Punk,Punk
+1,1,Classical,Classical
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+8,3,Jazz,Electronic
+1,9,Classical,Pop
+11,11,Rock,Rock
+4,10,Experimental,Punk
+6,6,Hip-Hop,Hip-Hop
+4,1,Experimental,Classical
+9,10,Pop,Punk
+3,4,Electronic,Experimental
+7,7,Instrumental,Instrumental
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+3,4,Electronic,Experimental
+11,11,Rock,Rock
+11,11,Rock,Rock
+3,9,Electronic,Pop
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+11,5,Rock,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+5,7,Folk,Instrumental
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+9,3,Pop,Electronic
+4,7,Experimental,Instrumental
+11,9,Rock,Pop
+5,7,Folk,Instrumental
+5,5,Folk,Folk
+11,4,Rock,Experimental
+1,1,Classical,Classical
+4,7,Experimental,Instrumental
+11,7,Rock,Instrumental
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+11,10,Rock,Punk
+11,4,Rock,Experimental
+5,11,Folk,Rock
+7,4,Instrumental,Experimental
+7,4,Instrumental,Experimental
+10,10,Punk,Punk
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+11,11,Rock,Rock
+4,6,Experimental,Hip-Hop
+3,3,Electronic,Electronic
+7,10,Instrumental,Punk
+11,11,Rock,Rock
+5,5,Folk,Folk
+10,10,Punk,Punk
+10,11,Punk,Rock
+7,4,Instrumental,Experimental
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+3,11,Electronic,Rock
+0,3,Chiptune / Glitch,Electronic
+4,9,Experimental,Pop
+11,6,Rock,Hip-Hop
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+11,7,Rock,Instrumental
+3,9,Electronic,Pop
+7,7,Instrumental,Instrumental
+3,11,Electronic,Rock
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+3,8,Electronic,Jazz
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+5,5,Folk,Folk
+7,9,Instrumental,Pop
+11,11,Rock,Rock
+10,10,Punk,Punk
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+3,9,Electronic,Pop
+11,3,Rock,Electronic
+3,6,Electronic,Hip-Hop
+3,9,Electronic,Pop
+3,6,Electronic,Hip-Hop
+7,3,Instrumental,Electronic
+7,7,Instrumental,Instrumental
+5,2,Folk,Country
+4,4,Experimental,Experimental
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+1,5,Classical,Folk
+11,10,Rock,Punk
+10,10,Punk,Punk
+9,4,Pop,Experimental
+3,4,Electronic,Experimental
+1,7,Classical,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+9,10,Pop,Punk
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+0,3,Chiptune / Glitch,Electronic
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+3,11,Electronic,Rock
+4,11,Experimental,Rock
+5,4,Folk,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,11,Electronic,Rock
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+4,10,Experimental,Punk
+3,4,Electronic,Experimental
+3,0,Electronic,Chiptune / Glitch
+6,0,Hip-Hop,Chiptune / Glitch
+10,11,Punk,Rock
+11,3,Rock,Electronic
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,7,Rock,Instrumental
+11,10,Rock,Punk
+3,9,Electronic,Pop
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+4,3,Experimental,Electronic
+3,3,Electronic,Electronic
+0,4,Chiptune / Glitch,Experimental
+0,4,Chiptune / Glitch,Experimental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+5,9,Folk,Pop
+10,10,Punk,Punk
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+10,11,Punk,Rock
+2,9,Country,Pop
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+11,3,Rock,Electronic
+4,10,Experimental,Punk
+6,6,Hip-Hop,Hip-Hop
+4,7,Experimental,Instrumental
+6,9,Hip-Hop,Pop
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+8,8,Jazz,Jazz
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,10,Experimental,Punk
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+11,10,Rock,Punk
+0,4,Chiptune / Glitch,Experimental
+6,6,Hip-Hop,Hip-Hop
+7,0,Instrumental,Chiptune / Glitch
+11,11,Rock,Rock
+10,11,Punk,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,7,Pop,Instrumental
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+1,7,Classical,Instrumental
+9,5,Pop,Folk
+4,7,Experimental,Instrumental
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+11,11,Rock,Rock
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+1,7,Classical,Instrumental
+11,4,Rock,Experimental
+10,4,Punk,Experimental
+10,11,Punk,Rock
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,11,Electronic,Rock
+11,11,Rock,Rock
+11,10,Rock,Punk
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+5,5,Folk,Folk
+9,7,Pop,Instrumental
+2,9,Country,Pop
+5,9,Folk,Pop
+8,1,Jazz,Classical
+3,3,Electronic,Electronic
+9,11,Pop,Rock
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+8,4,Jazz,Experimental
+10,11,Punk,Rock
+4,10,Experimental,Punk
+9,5,Pop,Folk
+5,11,Folk,Rock
+10,10,Punk,Punk
+10,11,Punk,Rock
+10,10,Punk,Punk
+11,10,Rock,Punk
+3,7,Electronic,Instrumental
+0,6,Chiptune / Glitch,Hip-Hop
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+5,5,Folk,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+10,3,Punk,Electronic
+3,7,Electronic,Instrumental
+9,11,Pop,Rock
+5,5,Folk,Folk
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+1,7,Classical,Instrumental
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+5,7,Folk,Instrumental
+5,5,Folk,Folk
+9,0,Pop,Chiptune / Glitch
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+5,5,Folk,Folk
+4,7,Experimental,Instrumental
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+9,10,Pop,Punk
+6,6,Hip-Hop,Hip-Hop
+3,9,Electronic,Pop
+3,3,Electronic,Electronic
+11,3,Rock,Electronic
+10,10,Punk,Punk
+0,3,Chiptune / Glitch,Electronic
+4,4,Experimental,Experimental
+11,5,Rock,Folk
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+1,1,Classical,Classical
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+9,4,Pop,Experimental
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+9,10,Pop,Punk
+9,4,Pop,Experimental
+5,5,Folk,Folk
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+9,10,Pop,Punk
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+3,4,Electronic,Experimental
+11,10,Rock,Punk
+7,4,Instrumental,Experimental
+3,4,Electronic,Experimental
+5,11,Folk,Rock
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+7,3,Instrumental,Electronic
+5,9,Folk,Pop
+10,10,Punk,Punk
+4,7,Experimental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,6,Pop,Hip-Hop
+10,4,Punk,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+1,7,Classical,Instrumental
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+11,11,Rock,Rock
+7,7,Instrumental,Instrumental
+8,3,Jazz,Electronic
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+10,7,Punk,Instrumental
+4,5,Experimental,Folk
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+11,3,Rock,Electronic
+3,9,Electronic,Pop
+7,5,Instrumental,Folk
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+11,11,Rock,Rock
+11,11,Rock,Rock
+11,10,Rock,Punk
+9,11,Pop,Rock
+3,0,Electronic,Chiptune / Glitch
+3,8,Electronic,Jazz
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+9,11,Pop,Rock
+5,2,Folk,Country
+4,7,Experimental,Instrumental
+5,5,Folk,Folk
+9,11,Pop,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,7,Electronic,Instrumental
+3,3,Electronic,Electronic
+11,9,Rock,Pop
+11,9,Rock,Pop
+3,3,Electronic,Electronic
+0,6,Chiptune / Glitch,Hip-Hop
+3,3,Electronic,Electronic
+5,9,Folk,Pop
+6,6,Hip-Hop,Hip-Hop
+11,4,Rock,Experimental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+11,3,Rock,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+11,10,Rock,Punk
+11,11,Rock,Rock
+5,5,Folk,Folk
+4,0,Experimental,Chiptune / Glitch
+7,4,Instrumental,Experimental
+11,10,Rock,Punk
+1,1,Classical,Classical
+5,4,Folk,Experimental
+7,0,Instrumental,Chiptune / Glitch
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+8,7,Jazz,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+3,11,Electronic,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,7,Experimental,Instrumental
+3,0,Electronic,Chiptune / Glitch
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,11,Punk,Rock
+4,7,Experimental,Instrumental
+2,10,Country,Punk
+10,10,Punk,Punk
+7,3,Instrumental,Electronic
+7,4,Instrumental,Experimental
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+11,5,Rock,Folk
+11,8,Rock,Jazz
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+9,10,Pop,Punk
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+9,11,Pop,Rock
+6,6,Hip-Hop,Hip-Hop
+11,9,Rock,Pop
+5,11,Folk,Rock
+9,4,Pop,Experimental
+4,7,Experimental,Instrumental
+7,11,Instrumental,Rock
+11,10,Rock,Punk
+9,7,Pop,Instrumental
+4,9,Experimental,Pop
+11,5,Rock,Folk
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+11,4,Rock,Experimental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+9,5,Pop,Folk
+11,6,Rock,Hip-Hop
+10,10,Punk,Punk
+11,11,Rock,Rock
+3,5,Electronic,Folk
+6,6,Hip-Hop,Hip-Hop
+1,7,Classical,Instrumental
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+3,6,Electronic,Hip-Hop
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+7,4,Instrumental,Experimental
+10,9,Punk,Pop
+10,10,Punk,Punk
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+8,7,Jazz,Instrumental
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+11,10,Rock,Punk
+4,5,Experimental,Folk
+9,3,Pop,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,5,Folk,Folk
+11,3,Rock,Electronic
+6,6,Hip-Hop,Hip-Hop
+8,4,Jazz,Experimental
+6,6,Hip-Hop,Hip-Hop
+7,4,Instrumental,Experimental
+4,4,Experimental,Experimental
+11,3,Rock,Electronic
+10,11,Punk,Rock
+4,5,Experimental,Folk
+11,11,Rock,Rock
+10,3,Punk,Electronic
+3,6,Electronic,Hip-Hop
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+4,8,Experimental,Jazz
+7,4,Instrumental,Experimental
+6,6,Hip-Hop,Hip-Hop
+11,5,Rock,Folk
+11,10,Rock,Punk
+10,10,Punk,Punk
+11,3,Rock,Electronic
+8,4,Jazz,Experimental
+5,11,Folk,Rock
+3,7,Electronic,Instrumental
+3,3,Electronic,Electronic
+6,3,Hip-Hop,Electronic
+4,7,Experimental,Instrumental
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+3,6,Electronic,Hip-Hop
+4,11,Experimental,Rock
+9,9,Pop,Pop
+10,11,Punk,Rock
+11,10,Rock,Punk
+9,7,Pop,Instrumental
+11,7,Rock,Instrumental
+9,7,Pop,Instrumental
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+4,7,Experimental,Instrumental
+10,10,Punk,Punk
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+9,4,Pop,Experimental
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+5,4,Folk,Experimental
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+9,7,Pop,Instrumental
+7,7,Instrumental,Instrumental
+11,7,Rock,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+10,10,Punk,Punk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+8,10,Jazz,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,3,Experimental,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,11,Punk,Rock
+7,11,Instrumental,Rock
+4,11,Experimental,Rock
+11,4,Rock,Experimental
+3,0,Electronic,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+11,11,Rock,Rock
+10,3,Punk,Electronic
+10,10,Punk,Punk
+9,3,Pop,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,11,Experimental,Rock
+6,4,Hip-Hop,Experimental
+6,6,Hip-Hop,Hip-Hop
+9,7,Pop,Instrumental
+11,10,Rock,Punk
+0,9,Chiptune / Glitch,Pop
+6,6,Hip-Hop,Hip-Hop
+6,9,Hip-Hop,Pop
+11,10,Rock,Punk
+4,11,Experimental,Rock
+3,0,Electronic,Chiptune / Glitch
+10,3,Punk,Electronic
+11,11,Rock,Rock
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,6,Punk,Hip-Hop
+9,7,Pop,Instrumental
+7,5,Instrumental,Folk
+4,4,Experimental,Experimental
+0,1,Chiptune / Glitch,Classical
+4,3,Experimental,Electronic
+5,5,Folk,Folk
+4,3,Experimental,Electronic
+7,4,Instrumental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+5,2,Folk,Country
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+9,0,Pop,Chiptune / Glitch
+3,4,Electronic,Experimental
+5,5,Folk,Folk
+8,7,Jazz,Instrumental
+9,11,Pop,Rock
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+5,11,Folk,Rock
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+6,4,Hip-Hop,Experimental
+3,11,Electronic,Rock
+7,5,Instrumental,Folk
+4,3,Experimental,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+5,8,Folk,Jazz
+9,9,Pop,Pop
+10,4,Punk,Experimental
+3,4,Electronic,Experimental
+6,6,Hip-Hop,Hip-Hop
+4,5,Experimental,Folk
+11,9,Rock,Pop
+11,4,Rock,Experimental
+8,3,Jazz,Electronic
+11,11,Rock,Rock
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+11,4,Rock,Experimental
+3,7,Electronic,Instrumental
+9,9,Pop,Pop
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+1,8,Classical,Jazz
+3,6,Electronic,Hip-Hop
+5,5,Folk,Folk
+10,10,Punk,Punk
+11,10,Rock,Punk
+11,10,Rock,Punk
+9,3,Pop,Electronic
+6,6,Hip-Hop,Hip-Hop
+2,11,Country,Rock
+4,7,Experimental,Instrumental
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+4,0,Experimental,Chiptune / Glitch
+6,3,Hip-Hop,Electronic
+4,4,Experimental,Experimental
+2,2,Country,Country
+10,11,Punk,Rock
+11,10,Rock,Punk
+0,3,Chiptune / Glitch,Electronic
+4,4,Experimental,Experimental
+6,4,Hip-Hop,Experimental
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+10,4,Punk,Experimental
+0,3,Chiptune / Glitch,Electronic
+7,7,Instrumental,Instrumental
+10,9,Punk,Pop
+1,1,Classical,Classical
+11,11,Rock,Rock
+10,11,Punk,Rock
+7,5,Instrumental,Folk
+11,7,Rock,Instrumental
+3,3,Electronic,Electronic
+4,10,Experimental,Punk
+1,1,Classical,Classical
+11,10,Rock,Punk
+11,10,Rock,Punk
+11,10,Rock,Punk
+9,7,Pop,Instrumental
+11,11,Rock,Rock
+1,1,Classical,Classical
+10,10,Punk,Punk
+1,1,Classical,Classical
+3,0,Electronic,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+10,9,Punk,Pop
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+11,3,Rock,Electronic
+11,10,Rock,Punk
+6,10,Hip-Hop,Punk
+7,7,Instrumental,Instrumental
+4,5,Experimental,Folk
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+3,7,Electronic,Instrumental
+9,3,Pop,Electronic
+9,9,Pop,Pop
+5,5,Folk,Folk
+7,3,Instrumental,Electronic
+3,4,Electronic,Experimental
+11,10,Rock,Punk
+10,10,Punk,Punk
+10,10,Punk,Punk
+10,4,Punk,Experimental
+3,4,Electronic,Experimental
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+11,7,Rock,Instrumental
+3,6,Electronic,Hip-Hop
+6,3,Hip-Hop,Electronic
+11,4,Rock,Experimental
+5,5,Folk,Folk
+8,11,Jazz,Rock
+0,7,Chiptune / Glitch,Instrumental
+4,3,Experimental,Electronic
+11,11,Rock,Rock
+5,9,Folk,Pop
+11,4,Rock,Experimental
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+3,8,Electronic,Jazz
+11,10,Rock,Punk
+7,9,Instrumental,Pop
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+10,11,Punk,Rock
+3,0,Electronic,Chiptune / Glitch
+11,11,Rock,Rock
+9,10,Pop,Punk
+9,3,Pop,Electronic
+4,4,Experimental,Experimental
+4,11,Experimental,Rock
+4,4,Experimental,Experimental
+4,11,Experimental,Rock
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+3,4,Electronic,Experimental
+4,7,Experimental,Instrumental
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+9,7,Pop,Instrumental
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+9,11,Pop,Rock
+3,3,Electronic,Electronic
+3,4,Electronic,Experimental
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+1,1,Classical,Classical
+11,11,Rock,Rock
+11,10,Rock,Punk
+10,10,Punk,Punk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+10,5,Punk,Folk
+3,3,Electronic,Electronic
+4,0,Experimental,Chiptune / Glitch
+10,3,Punk,Electronic
+11,11,Rock,Rock
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+6,3,Hip-Hop,Electronic
+11,3,Rock,Electronic
+7,7,Instrumental,Instrumental
+5,5,Folk,Folk
+10,4,Punk,Experimental
+4,4,Experimental,Experimental
+11,8,Rock,Jazz
+4,7,Experimental,Instrumental
+6,3,Hip-Hop,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,2,Folk,Country
+3,3,Electronic,Electronic
+11,3,Rock,Electronic
+1,4,Classical,Experimental
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+4,11,Experimental,Rock
+5,4,Folk,Experimental
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+7,11,Instrumental,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+9,0,Pop,Chiptune / Glitch
+11,11,Rock,Rock
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+3,6,Electronic,Hip-Hop
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+10,4,Punk,Experimental
+11,10,Rock,Punk
+0,3,Chiptune / Glitch,Electronic
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,11,Punk,Rock
+3,0,Electronic,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+10,11,Punk,Rock
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+3,4,Electronic,Experimental
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+5,5,Folk,Folk
+8,8,Jazz,Jazz
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+11,3,Rock,Electronic
+11,7,Rock,Instrumental
+3,3,Electronic,Electronic
+11,9,Rock,Pop
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+4,6,Experimental,Hip-Hop
+2,2,Country,Country
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+11,9,Rock,Pop
+3,3,Electronic,Electronic
+3,11,Electronic,Rock
+11,5,Rock,Folk
+6,6,Hip-Hop,Hip-Hop
+1,7,Classical,Instrumental
+10,11,Punk,Rock
+9,11,Pop,Rock
+4,7,Experimental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,9,Electronic,Pop
+8,3,Jazz,Electronic
+4,11,Experimental,Rock
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+1,1,Classical,Classical
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+1,1,Classical,Classical
+5,9,Folk,Pop
+0,3,Chiptune / Glitch,Electronic
+11,11,Rock,Rock
+4,11,Experimental,Rock
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+0,3,Chiptune / Glitch,Electronic
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,11,Folk,Rock
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+6,10,Hip-Hop,Punk
+9,4,Pop,Experimental
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+9,3,Pop,Electronic
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,7,Electronic,Instrumental
+11,11,Rock,Rock
+0,11,Chiptune / Glitch,Rock
+4,7,Experimental,Instrumental
+4,7,Experimental,Instrumental
+1,1,Classical,Classical
+11,11,Rock,Rock
+5,4,Folk,Experimental
+0,3,Chiptune / Glitch,Electronic
+10,11,Punk,Rock
+6,3,Hip-Hop,Electronic
+0,4,Chiptune / Glitch,Experimental
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+0,3,Chiptune / Glitch,Electronic
+11,7,Rock,Instrumental
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+7,4,Instrumental,Experimental
+11,10,Rock,Punk
+5,5,Folk,Folk
+7,11,Instrumental,Rock
+10,10,Punk,Punk
+1,1,Classical,Classical
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+11,9,Rock,Pop
+11,4,Rock,Experimental
+3,6,Electronic,Hip-Hop
+3,8,Electronic,Jazz
+11,10,Rock,Punk
+10,11,Punk,Rock
+3,10,Electronic,Punk
+3,6,Electronic,Hip-Hop
+9,11,Pop,Rock
+10,11,Punk,Rock
+4,3,Experimental,Electronic
+11,5,Rock,Folk
+0,3,Chiptune / Glitch,Electronic
+10,10,Punk,Punk
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+1,7,Classical,Instrumental
+1,1,Classical,Classical
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+3,4,Electronic,Experimental
+1,7,Classical,Instrumental
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+8,8,Jazz,Jazz
+9,10,Pop,Punk
+3,9,Electronic,Pop
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+4,7,Experimental,Instrumental
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+11,8,Rock,Jazz
+11,11,Rock,Rock
+4,9,Experimental,Pop
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+0,3,Chiptune / Glitch,Electronic
+11,4,Rock,Experimental
+10,11,Punk,Rock
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+5,5,Folk,Folk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,5,Folk,Folk
+9,11,Pop,Rock
+2,5,Country,Folk
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+7,5,Instrumental,Folk
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+10,11,Punk,Rock
+9,11,Pop,Rock
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+4,0,Experimental,Chiptune / Glitch
+3,4,Electronic,Experimental
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+11,10,Rock,Punk
+10,9,Punk,Pop
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+3,9,Electronic,Pop
+11,3,Rock,Electronic
+5,5,Folk,Folk
+7,7,Instrumental,Instrumental
+11,10,Rock,Punk
+11,11,Rock,Rock
+7,3,Instrumental,Electronic
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+0,3,Chiptune / Glitch,Electronic
+6,3,Hip-Hop,Electronic
+6,3,Hip-Hop,Electronic
+10,11,Punk,Rock
+10,10,Punk,Punk
+11,5,Rock,Folk
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+9,9,Pop,Pop
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+5,11,Folk,Rock
+9,3,Pop,Electronic
+3,0,Electronic,Chiptune / Glitch
+11,10,Rock,Punk
+11,3,Rock,Electronic
+5,5,Folk,Folk
+3,4,Electronic,Experimental
+5,5,Folk,Folk
+9,11,Pop,Rock
+10,11,Punk,Rock
+7,3,Instrumental,Electronic
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+1,4,Classical,Experimental
+9,11,Pop,Rock
+10,11,Punk,Rock
+3,5,Electronic,Folk
+9,3,Pop,Electronic
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+3,6,Electronic,Hip-Hop
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+6,3,Hip-Hop,Electronic
+11,10,Rock,Punk
+11,10,Rock,Punk
+5,11,Folk,Rock
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+1,1,Classical,Classical
+0,0,Chiptune / Glitch,Chiptune / Glitch
+1,4,Classical,Experimental
+3,11,Electronic,Rock
+11,9,Rock,Pop
+11,11,Rock,Rock
+3,11,Electronic,Rock
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+11,11,Rock,Rock
+11,7,Rock,Instrumental
+5,5,Folk,Folk
+1,1,Classical,Classical
+5,11,Folk,Rock
+7,8,Instrumental,Jazz
+9,7,Pop,Instrumental
+11,7,Rock,Instrumental
+11,7,Rock,Instrumental
+7,4,Instrumental,Experimental
+0,3,Chiptune / Glitch,Electronic
+9,11,Pop,Rock
+5,5,Folk,Folk
+3,7,Electronic,Instrumental
+4,10,Experimental,Punk
+10,10,Punk,Punk
+11,9,Rock,Pop
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+11,7,Rock,Instrumental
+6,6,Hip-Hop,Hip-Hop
+4,7,Experimental,Instrumental
+11,11,Rock,Rock
+0,7,Chiptune / Glitch,Instrumental
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+10,10,Punk,Punk
+1,1,Classical,Classical
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+7,11,Instrumental,Rock
+5,5,Folk,Folk
+1,1,Classical,Classical
+0,9,Chiptune / Glitch,Pop
+3,0,Electronic,Chiptune / Glitch
+11,11,Rock,Rock
+11,10,Rock,Punk
+4,7,Experimental,Instrumental
+1,1,Classical,Classical
+1,4,Classical,Experimental
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+7,4,Instrumental,Experimental
+6,6,Hip-Hop,Hip-Hop
+3,4,Electronic,Experimental
+1,1,Classical,Classical
+11,11,Rock,Rock
+6,5,Hip-Hop,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,11,Pop,Rock
+10,11,Punk,Rock
+0,3,Chiptune / Glitch,Electronic
+9,9,Pop,Pop
+10,11,Punk,Rock
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+9,9,Pop,Pop
+3,11,Electronic,Rock
+11,10,Rock,Punk
+5,5,Folk,Folk
+10,10,Punk,Punk
+10,10,Punk,Punk
+5,7,Folk,Instrumental
+3,3,Electronic,Electronic
+4,3,Experimental,Electronic
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+9,11,Pop,Rock
+5,8,Folk,Jazz
+2,4,Country,Experimental
+4,4,Experimental,Experimental
+11,4,Rock,Experimental
+7,4,Instrumental,Experimental
+10,11,Punk,Rock
+3,7,Electronic,Instrumental
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+5,5,Folk,Folk
+11,11,Rock,Rock
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+10,11,Punk,Rock
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+11,11,Rock,Rock
+9,3,Pop,Electronic
+11,11,Rock,Rock
+6,3,Hip-Hop,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,4,Rock,Experimental
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+6,3,Hip-Hop,Electronic
+10,10,Punk,Punk
+8,10,Jazz,Punk
+6,5,Hip-Hop,Folk
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+6,3,Hip-Hop,Electronic
+11,5,Rock,Folk
+10,10,Punk,Punk
+0,7,Chiptune / Glitch,Instrumental
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+7,4,Instrumental,Experimental
+4,4,Experimental,Experimental
+4,3,Experimental,Electronic
+11,10,Rock,Punk
+3,4,Electronic,Experimental
+11,10,Rock,Punk
+7,0,Instrumental,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+1,1,Classical,Classical
+2,11,Country,Rock
+0,3,Chiptune / Glitch,Electronic
+10,11,Punk,Rock
+4,0,Experimental,Chiptune / Glitch
+11,10,Rock,Punk
+5,5,Folk,Folk
+6,3,Hip-Hop,Electronic
+5,5,Folk,Folk
+3,7,Electronic,Instrumental
+11,10,Rock,Punk
+3,6,Electronic,Hip-Hop
+11,10,Rock,Punk
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+1,5,Classical,Folk
+1,1,Classical,Classical
+10,11,Punk,Rock
+10,4,Punk,Experimental
+1,1,Classical,Classical
+6,3,Hip-Hop,Electronic
+9,7,Pop,Instrumental
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+7,0,Instrumental,Chiptune / Glitch
+7,4,Instrumental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+10,11,Punk,Rock
+5,5,Folk,Folk
+10,2,Punk,Country
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+9,3,Pop,Electronic
+9,9,Pop,Pop
+1,1,Classical,Classical
+3,0,Electronic,Chiptune / Glitch
+11,10,Rock,Punk
+5,5,Folk,Folk
+5,7,Folk,Instrumental
+3,11,Electronic,Rock
+6,10,Hip-Hop,Punk
+5,11,Folk,Rock
+8,4,Jazz,Experimental
+7,7,Instrumental,Instrumental
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+11,11,Rock,Rock
+11,5,Rock,Folk
+11,11,Rock,Rock
+8,10,Jazz,Punk
+8,7,Jazz,Instrumental
+10,3,Punk,Electronic
+4,4,Experimental,Experimental
+1,1,Classical,Classical
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,5,Experimental,Folk
+5,4,Folk,Experimental
+1,1,Classical,Classical
+5,5,Folk,Folk
+6,6,Hip-Hop,Hip-Hop
+11,8,Rock,Jazz
+11,11,Rock,Rock
+3,4,Electronic,Experimental
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+9,9,Pop,Pop
+4,7,Experimental,Instrumental
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+8,8,Jazz,Jazz
+10,4,Punk,Experimental
+1,1,Classical,Classical
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+9,0,Pop,Chiptune / Glitch
+4,4,Experimental,Experimental
+11,5,Rock,Folk
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+9,3,Pop,Electronic
+10,11,Punk,Rock
+3,9,Electronic,Pop
+11,3,Rock,Electronic
+6,0,Hip-Hop,Chiptune / Glitch
+7,7,Instrumental,Instrumental
+11,5,Rock,Folk
+3,6,Electronic,Hip-Hop
+11,10,Rock,Punk
+0,3,Chiptune / Glitch,Electronic
+7,7,Instrumental,Instrumental
+7,4,Instrumental,Experimental
+3,11,Electronic,Rock
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+10,11,Punk,Rock
+11,11,Rock,Rock
+4,7,Experimental,Instrumental
+3,10,Electronic,Punk
+10,4,Punk,Experimental
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+11,11,Rock,Rock
+11,10,Rock,Punk
+3,3,Electronic,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,11,Rock,Rock
+11,4,Rock,Experimental
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+11,10,Rock,Punk
+10,10,Punk,Punk
+2,11,Country,Rock
+11,10,Rock,Punk
+7,11,Instrumental,Rock
+10,10,Punk,Punk
+7,5,Instrumental,Folk
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+9,11,Pop,Rock
+3,3,Electronic,Electronic
+9,11,Pop,Rock
+3,3,Electronic,Electronic
+6,0,Hip-Hop,Chiptune / Glitch
+11,11,Rock,Rock
+11,9,Rock,Pop
+10,10,Punk,Punk
+5,11,Folk,Rock
+11,7,Rock,Instrumental
+0,3,Chiptune / Glitch,Electronic
+3,11,Electronic,Rock
+4,7,Experimental,Instrumental
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+9,0,Pop,Chiptune / Glitch
+10,4,Punk,Experimental
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+3,0,Electronic,Chiptune / Glitch
+11,5,Rock,Folk
+3,7,Electronic,Instrumental
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+3,0,Electronic,Chiptune / Glitch
+4,7,Experimental,Instrumental
+9,3,Pop,Electronic
+4,11,Experimental,Rock
+5,5,Folk,Folk
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+6,3,Hip-Hop,Electronic
+4,0,Experimental,Chiptune / Glitch
+5,5,Folk,Folk
+3,7,Electronic,Instrumental
+5,4,Folk,Experimental
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,5,Rock,Folk
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+7,7,Instrumental,Instrumental
+3,7,Electronic,Instrumental
+1,1,Classical,Classical
+11,6,Rock,Hip-Hop
+3,7,Electronic,Instrumental
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+3,7,Electronic,Instrumental
+3,0,Electronic,Chiptune / Glitch
+10,11,Punk,Rock
+4,3,Experimental,Electronic
+10,11,Punk,Rock
+6,6,Hip-Hop,Hip-Hop
+11,4,Rock,Experimental
+11,11,Rock,Rock
+5,5,Folk,Folk
+4,4,Experimental,Experimental
+10,11,Punk,Rock
+3,7,Electronic,Instrumental
+11,4,Rock,Experimental
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+5,4,Folk,Experimental
+0,3,Chiptune / Glitch,Electronic
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+6,0,Hip-Hop,Chiptune / Glitch
+5,9,Folk,Pop
+4,4,Experimental,Experimental
+9,10,Pop,Punk
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+9,3,Pop,Electronic
+3,3,Electronic,Electronic
+5,9,Folk,Pop
+6,6,Hip-Hop,Hip-Hop
+0,3,Chiptune / Glitch,Electronic
+9,3,Pop,Electronic
+7,11,Instrumental,Rock
+4,4,Experimental,Experimental
+8,5,Jazz,Folk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,10,Rock,Punk
+3,0,Electronic,Chiptune / Glitch
+2,2,Country,Country
+0,3,Chiptune / Glitch,Electronic
+11,9,Rock,Pop
+8,5,Jazz,Folk
+11,9,Rock,Pop
+8,11,Jazz,Rock
+4,4,Experimental,Experimental
+3,4,Electronic,Experimental
+3,0,Electronic,Chiptune / Glitch
+3,0,Electronic,Chiptune / Glitch
+4,7,Experimental,Instrumental
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+10,7,Punk,Instrumental
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+10,10,Punk,Punk
+10,11,Punk,Rock
+6,3,Hip-Hop,Electronic
+4,4,Experimental,Experimental
+10,5,Punk,Folk
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+10,11,Punk,Rock
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+9,4,Pop,Experimental
+5,11,Folk,Rock
+3,3,Electronic,Electronic
+9,10,Pop,Punk
+4,0,Experimental,Chiptune / Glitch
+4,7,Experimental,Instrumental
+5,5,Folk,Folk
+1,7,Classical,Instrumental
+11,10,Rock,Punk
+5,5,Folk,Folk
+4,7,Experimental,Instrumental
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,11,Punk,Rock
+11,10,Rock,Punk
+11,4,Rock,Experimental
+4,7,Experimental,Instrumental
+3,3,Electronic,Electronic
+9,5,Pop,Folk
+5,7,Folk,Instrumental
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+10,10,Punk,Punk
+11,4,Rock,Experimental
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+11,7,Rock,Instrumental
+5,5,Folk,Folk
+6,6,Hip-Hop,Hip-Hop
+5,11,Folk,Rock
+3,3,Electronic,Electronic
+1,1,Classical,Classical
+9,11,Pop,Rock
+3,7,Electronic,Instrumental
+6,9,Hip-Hop,Pop
+4,11,Experimental,Rock
+10,10,Punk,Punk
+3,0,Electronic,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+3,5,Electronic,Folk
+3,4,Electronic,Experimental
+4,4,Experimental,Experimental
+3,7,Electronic,Instrumental
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+10,10,Punk,Punk
+10,11,Punk,Rock
+11,11,Rock,Rock
+11,0,Rock,Chiptune / Glitch
+7,3,Instrumental,Electronic
+9,7,Pop,Instrumental
+7,11,Instrumental,Rock
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+3,7,Electronic,Instrumental
+5,9,Folk,Pop
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+11,11,Rock,Rock
+5,9,Folk,Pop
+11,5,Rock,Folk
+0,11,Chiptune / Glitch,Rock
+3,0,Electronic,Chiptune / Glitch
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+0,3,Chiptune / Glitch,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,9,Rock,Pop
+11,11,Rock,Rock
+1,7,Classical,Instrumental
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+5,11,Folk,Rock
+8,7,Jazz,Instrumental
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+3,7,Electronic,Instrumental
+4,8,Experimental,Jazz
+3,10,Electronic,Punk
+4,3,Experimental,Electronic
+8,6,Jazz,Hip-Hop
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+7,7,Instrumental,Instrumental
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+1,1,Classical,Classical
+10,11,Punk,Rock
+9,11,Pop,Rock
+0,3,Chiptune / Glitch,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+11,10,Rock,Punk
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+11,4,Rock,Experimental
+4,4,Experimental,Experimental
+6,3,Hip-Hop,Electronic
+9,6,Pop,Hip-Hop
+3,3,Electronic,Electronic
+5,5,Folk,Folk
+9,4,Pop,Experimental
+11,11,Rock,Rock
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+0,7,Chiptune / Glitch,Instrumental
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+6,3,Hip-Hop,Electronic
+11,11,Rock,Rock
+4,4,Experimental,Experimental
+3,3,Electronic,Electronic
+3,6,Electronic,Hip-Hop
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+6,6,Hip-Hop,Hip-Hop
+11,6,Rock,Hip-Hop
+11,7,Rock,Instrumental
+10,10,Punk,Punk
+9,10,Pop,Punk
+3,3,Electronic,Electronic
+11,11,Rock,Rock
+5,7,Folk,Instrumental
+6,6,Hip-Hop,Hip-Hop
+3,7,Electronic,Instrumental
+11,7,Rock,Instrumental
+2,11,Country,Rock
+5,11,Folk,Rock
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+11,10,Rock,Punk
+4,5,Experimental,Folk
+9,4,Pop,Experimental
+1,4,Classical,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,0,Experimental,Chiptune / Glitch
+11,10,Rock,Punk
+3,0,Electronic,Chiptune / Glitch
+11,4,Rock,Experimental
+5,5,Folk,Folk
+7,5,Instrumental,Folk
+11,10,Rock,Punk
+11,10,Rock,Punk
+1,1,Classical,Classical
+3,3,Electronic,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,9,Experimental,Pop
+4,7,Experimental,Instrumental
+5,5,Folk,Folk
+11,11,Rock,Rock
+7,4,Instrumental,Experimental
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+11,11,Rock,Rock
+4,7,Experimental,Instrumental
+6,0,Hip-Hop,Chiptune / Glitch
+4,4,Experimental,Experimental
+11,11,Rock,Rock
+10,10,Punk,Punk
+9,3,Pop,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+9,9,Pop,Pop
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+3,4,Electronic,Experimental
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+4,0,Experimental,Chiptune / Glitch
+0,3,Chiptune / Glitch,Electronic
+6,6,Hip-Hop,Hip-Hop
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+6,3,Hip-Hop,Electronic
+6,6,Hip-Hop,Hip-Hop
+6,3,Hip-Hop,Electronic
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+7,3,Instrumental,Electronic
+10,10,Punk,Punk
+7,4,Instrumental,Experimental
+0,3,Chiptune / Glitch,Electronic
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+11,3,Rock,Electronic
+7,3,Instrumental,Electronic
+11,3,Rock,Electronic
+3,4,Electronic,Experimental
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+3,0,Electronic,Chiptune / Glitch
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+6,6,Hip-Hop,Hip-Hop
+5,7,Folk,Instrumental
+1,4,Classical,Experimental
+4,4,Experimental,Experimental
+4,4,Experimental,Experimental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+7,7,Instrumental,Instrumental
+1,1,Classical,Classical
+7,10,Instrumental,Punk
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+3,7,Electronic,Instrumental
+4,7,Experimental,Instrumental
+9,7,Pop,Instrumental
+7,4,Instrumental,Experimental
+6,3,Hip-Hop,Electronic
+11,9,Rock,Pop
+9,5,Pop,Folk
+7,11,Instrumental,Rock
+4,9,Experimental,Pop
+11,11,Rock,Rock
+11,11,Rock,Rock
+10,10,Punk,Punk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+9,3,Pop,Electronic
+10,11,Punk,Rock
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+6,6,Hip-Hop,Hip-Hop
+10,11,Punk,Rock
+3,9,Electronic,Pop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+4,9,Experimental,Pop
+9,4,Pop,Experimental
+4,7,Experimental,Instrumental
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,10,Pop,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+9,3,Pop,Electronic
+10,10,Punk,Punk
+8,8,Jazz,Jazz
+11,0,Rock,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+6,6,Hip-Hop,Hip-Hop
+10,9,Punk,Pop
+10,10,Punk,Punk
+9,11,Pop,Rock
+5,5,Folk,Folk
+3,10,Electronic,Punk
+4,4,Experimental,Experimental
+3,4,Electronic,Experimental
+3,4,Electronic,Experimental
+10,11,Punk,Rock
+1,1,Classical,Classical
+0,0,Chiptune / Glitch,Chiptune / Glitch
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+10,10,Punk,Punk
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+4,4,Experimental,Experimental
+11,10,Rock,Punk
+3,0,Electronic,Chiptune / Glitch
+4,9,Experimental,Pop
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+4,5,Experimental,Folk
+8,7,Jazz,Instrumental
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+4,7,Experimental,Instrumental
+11,4,Rock,Experimental
+2,2,Country,Country
+3,3,Electronic,Electronic
+10,11,Punk,Rock
+3,7,Electronic,Instrumental
+3,7,Electronic,Instrumental
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
+3,7,Electronic,Instrumental
+10,3,Punk,Electronic
+3,3,Electronic,Electronic
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+3,11,Electronic,Rock
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+11,10,Rock,Punk
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+7,4,Instrumental,Experimental
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+10,11,Punk,Rock
+7,7,Instrumental,Instrumental
+3,3,Electronic,Electronic
+4,10,Experimental,Punk
+7,7,Instrumental,Instrumental
+9,9,Pop,Pop
+11,10,Rock,Punk
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+4,7,Experimental,Instrumental
+6,6,Hip-Hop,Hip-Hop
+11,4,Rock,Experimental
+0,3,Chiptune / Glitch,Electronic
+11,10,Rock,Punk
+8,4,Jazz,Experimental
+11,3,Rock,Electronic
+11,11,Rock,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+0,3,Chiptune / Glitch,Electronic
+0,0,Chiptune / Glitch,Chiptune / Glitch
+0,3,Chiptune / Glitch,Electronic
+4,10,Experimental,Punk
+7,3,Instrumental,Electronic
+9,4,Pop,Experimental
+6,3,Hip-Hop,Electronic
+3,3,Electronic,Electronic
+11,10,Rock,Punk
+6,9,Hip-Hop,Pop
+5,5,Folk,Folk
+7,8,Instrumental,Jazz
+3,4,Electronic,Experimental
+3,3,Electronic,Electronic
+3,0,Electronic,Chiptune / Glitch
+11,11,Rock,Rock
+3,11,Electronic,Rock
+10,10,Punk,Punk
+4,4,Experimental,Experimental
+11,4,Rock,Experimental
+3,5,Electronic,Folk
+11,7,Rock,Instrumental
+11,11,Rock,Rock
+10,10,Punk,Punk
+3,3,Electronic,Electronic
+3,9,Electronic,Pop
+5,5,Folk,Folk
+11,10,Rock,Punk
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+11,11,Rock,Rock
+4,6,Experimental,Hip-Hop
+3,3,Electronic,Electronic
+5,7,Folk,Instrumental
+5,5,Folk,Folk
+4,8,Experimental,Jazz
+3,3,Electronic,Electronic
+0,3,Chiptune / Glitch,Electronic
+7,7,Instrumental,Instrumental
+11,11,Rock,Rock
+9,9,Pop,Pop
+11,11,Rock,Rock
+7,4,Instrumental,Experimental
+10,11,Punk,Rock
+3,3,Electronic,Electronic
+4,11,Experimental,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+6,6,Hip-Hop,Hip-Hop
+0,0,Chiptune / Glitch,Chiptune / Glitch
+3,7,Electronic,Instrumental
+7,5,Instrumental,Folk
+4,4,Experimental,Experimental
+10,11,Punk,Rock
+11,10,Rock,Punk
+11,7,Rock,Instrumental
+11,11,Rock,Rock
+3,3,Electronic,Electronic
+3,10,Electronic,Punk
+11,10,Rock,Punk
+4,0,Experimental,Chiptune / Glitch
+11,4,Rock,Experimental
+5,7,Folk,Instrumental
+10,10,Punk,Punk
+9,11,Pop,Rock
+0,0,Chiptune / Glitch,Chiptune / Glitch
+4,4,Experimental,Experimental
+7,3,Instrumental,Electronic
+3,0,Electronic,Chiptune / Glitch
+4,4,Experimental,Experimental
+5,5,Folk,Folk
+10,10,Punk,Punk
+10,11,Punk,Rock
+5,4,Folk,Experimental
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+5,5,Folk,Folk
+2,5,Country,Folk
+6,6,Hip-Hop,Hip-Hop
+3,3,Electronic,Electronic
+0,7,Chiptune / Glitch,Instrumental
+6,6,Hip-Hop,Hip-Hop
+5,11,Folk,Rock
+11,11,Rock,Rock
+4,3,Experimental,Electronic
+7,7,Instrumental,Instrumental
+10,11,Punk,Rock
+11,5,Rock,Folk
+10,10,Punk,Punk
+5,5,Folk,Folk
+1,7,Classical,Instrumental
+11,11,Rock,Rock
+9,11,Pop,Rock
+11,10,Rock,Punk
+0,0,Chiptune / Glitch,Chiptune / Glitch
+10,10,Punk,Punk
+11,7,Rock,Instrumental
+5,4,Folk,Experimental
+6,6,Hip-Hop,Hip-Hop
+3,4,Electronic,Experimental
+6,10,Hip-Hop,Punk
+4,9,Experimental,Pop
+8,4,Jazz,Experimental
+3,7,Electronic,Instrumental
+4,4,Experimental,Experimental
+6,6,Hip-Hop,Hip-Hop
+10,10,Punk,Punk
+7,3,Instrumental,Electronic
+8,7,Jazz,Instrumental
+11,10,Rock,Punk
+8,8,Jazz,Jazz
+5,5,Folk,Folk
+10,10,Punk,Punk
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
+7,7,Instrumental,Instrumental
+11,10,Rock,Punk
+1,1,Classical,Classical
+11,10,Rock,Punk
+10,10,Punk,Punk
+9,3,Pop,Electronic
+6,6,Hip-Hop,Hip-Hop
+11,11,Rock,Rock
+11,11,Rock,Rock
+6,6,Hip-Hop,Hip-Hop
+5,5,Folk,Folk
+3,3,Electronic,Electronic
+3,4,Electronic,Experimental
+9,10,Pop,Punk
+7,11,Instrumental,Rock
+10,11,Punk,Rock
+8,8,Jazz,Jazz
+9,3,Pop,Electronic
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+10,11,Punk,Rock
+5,5,Folk,Folk
+3,7,Electronic,Instrumental
+10,10,Punk,Punk
+6,3,Hip-Hop,Electronic
+5,5,Folk,Folk
+10,10,Punk,Punk
+3,7,Electronic,Instrumental
+11,11,Rock,Rock
+3,7,Electronic,Instrumental
+9,9,Pop,Pop
+11,7,Rock,Instrumental
+10,4,Punk,Experimental
+4,4,Experimental,Experimental
+0,3,Chiptune / Glitch,Electronic
+10,9,Punk,Pop
+11,5,Rock,Folk
+10,10,Punk,Punk
+10,10,Punk,Punk
+2,2,Country,Country
+5,11,Folk,Rock
+11,4,Rock,Experimental
+11,10,Rock,Punk
+3,7,Electronic,Instrumental
+5,5,Folk,Folk
+7,7,Instrumental,Instrumental
+4,4,Experimental,Experimental
